@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/mainlist/mainlist",
+    "pages/item/item",
+    "pages/setting/setting",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#de0000",
+    "navigationBarTitleText": "Sports News",
+    "navigationBarTextStyle":"#fff",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectorColor": "#de0000",
+    "borderStyle": "white",
+    "backgroundColor": "f9f9f9",
+    "list": [
+      {
+        "text": "推荐",
+        "pagePath": "pages/mainlist/mainlist",
+        "iconPath": "images/mainlist.png",
+        "selectedIconPath": "images/mainlist-actived.png"
+      },
+      {
+        "text": "设置",
+        "pagePath": "pages/setting/setting",
+        "iconPath": "images/setting.png",
+        "selectedIconPath": "images/setting-actived.png"
+      }
+
+    ]
+  }
+}

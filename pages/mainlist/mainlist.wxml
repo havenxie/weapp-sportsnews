@@ -1,0 +1,50 @@
+
+<loading hidden="{{!loading}}">加载中...</loading>
+<scroll-view scroll-y="true" class="container" bindscrolltolower="loadMore">
+
+  <view class="head">
+    <swiper class="swiper" indicator-dots="{{swiper.item.length > 1}}" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{swiper.item}}" wx:for-index="index" wx:key="index">
+        <swiper-item data-type="{{swiper.type}}" >
+          <image src="{{item.thumbnail}}" class="slide-image" mode="aspectFill"/>
+          <text class="title">{{item.title}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="navs">
+    <block wx:for="{{navs.item}}" wx:for-index="index" wx:key="index">
+        <view data-type="{{navs.type}}" class="navitem">
+          <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
+          <text class="title">{{item.title}}</text>
+        </view>
+      </block>
+  </view>
+
+  <view class="news">
+    <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
+      <navigator url="../item/item?id={{item.staticId}}" wx:if="{{item.type != 'web'}}" data-type="{{news.type}}" data-url="{{item.id}}" class="newitem">
+        <image class="poster" src="{{item.thumbnail}}"></image>
+        <view class="meta">
+          <text class="title">{{item.title}}</text>
+          <view class="other">
+            <view class="source">
+              <image wx:if="{{item.subscribe.logo}}" src="{{item.subscribe.logo}}" class="logo" />
+              <text wx:if="{{item.source}}" class="detail">{{item.source}}</text>
+              <!-- <text wx:if="{{item.updateTime}}" class="updateTime">{{item.updateTime}}</text> -->
+            </view>
+            <text wx:if="{{item.commentsall}}" class="comment">{{item.commentsall}}</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+
+  <view class="tips">
+      <view wx:if="{{hasMore}}"><image src="/images/loading.gif" mode="aspectFill"/><text>玩了命的加载中...</text></view>
+      <view wx:else><text>没有更多内容了</text></view>
+  </view>
+
+</scroll-view>
+ 
