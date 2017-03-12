@@ -10,11 +10,11 @@
 
 1. 将仓库克隆到本地：
   ```bash
-  $ git clone https://github.com/zce/weapp-demo.git weapp-douban --depth 1
-  $ cd weapp-douban
+  $ git clone https://github.com/havenxie/weapp-sportsnews.git weapp-sportsnews --depth 1
+  $ cd weapp-sportsnews
   ```
 
-2. 打开`微信Web开放者工具`
+2. 打开`微信Web开发者工具`
   - 我用的是0.11.122100版本
   - 不需要所谓的破解，网上所谓的破解只是针对之前的`0.9.092100`版本，新的官方版本不需要破解！
   - 下载链接：`https://pan.baidu.com/s/1qYld6Vi`   
@@ -29,13 +29,13 @@
   - 项目目录：选择刚刚克隆的文件夹
   - 点击`添加项目`
 
-4. 你可以选择在`微信Web开放者工具`中编码（也可选择你喜欢的编辑器）
+4. 你可以选择在`微信Web开发者工具`中编码（也可选择你喜欢的编辑器，我用的是sublime）
 
 6. 通过左下角重启按钮，刷新编码过后的预览
 
 7. 代码中用到了大量ES6的语法，可能需要node环境，请自行安装
 
-7. 剩下的可以自由发挥了
+8. 剩下的可以自由发挥了
 
 
 ## 微信小程序基本教程
@@ -119,7 +119,7 @@ App({
 
   * wxml指的是`Wei Xin Markup Language`
   * 用于定义页面中元素结构的
-  * 语法遵循XML语法，注意是XML语法，不是HTML语法，不是HTML语法，不是HTML语法
+  * 语法遵循XML语法，注意是XML语法，不是HTML语法
   * 未完待续...
 
 - page-name.wxss
