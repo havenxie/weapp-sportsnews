@@ -1,0 +1,67 @@
+<import src="../common/news-swiper.wxml"/>
+<import src="../common/news-list.wxml"/>
+
+<loading hidden="{{!loading}}">加载中...</loading>
+
+<scroll-view  scroll-y="true" class="container" bindscrolltolower="loadMore">
+  
+   <block wx:for="{{subjects}}" wx:for-item="subclass">
+   <!-- 最上面的图片 -->
+    <block wx:if="{{subclass.view == 'multiTitle'}}">
+      <view class="multiTitle">
+        <image src="{{subclass.content.bgImage}}" mode="widthFix"></image>
+      </view>
+    </block>
+     
+    <!-- 介绍文本 -->
+    <block wx:elif="{{subclass.view == 'text'}}">
+      <view class="text">
+        <text>{{subclass.content.intro}}</text>
+      </view>
+    </block>
+
+    <!-- 轮播图 -->
+    <block wx:elif="{{subclass.view == 'slider'}}">
+      <view class="slider">
+        <template is="swiper" data="{{ subclass }}" />
+      </view>
+    </block>
+
+    <block wx:elif="{{subclass.view == 'list'}}">
+      <view class="navtitle">{{subclass.title}}</view>
+      <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="index">
+         <template is="news-list" data="{{item}}" />
+      </block>
+    </block>
+
+    <block wx:elif="{{subclass.view == 'album'}}">
+      <view class="navtitle">{{subclass.title}}</view>
+      <block wx:for="{{subclass.podItems}}">
+        <!-- 图片部分 -->
+        <block wx:if="{{!item.hasVideo}}">
+          <view class="groupimg" >
+            <view class="imgtitle">{{item.title}}</view>
+            <view class="imgs">
+              <image wx:for="{{item.thumbnails}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}">
+              </image>
+          </view>
+          </view>
+        </block>
+        <!-- 视频部分 -->
+        <block wx:elif="{{item.hasVideo}}">
+            <template is="news-list" data="{{item}}" />
+        </block>
+      </block>
+    </block>
+
+   </block>
+
+
+
+  <view class="tips">
+     <view wx:if="{{hasMore}}"><image src="/images/loading.gif" mode="aspectFill"/><text>玩了命的加载中...</text></view>
+     <view wx:else><text>没有更多内容了</text></view>
+ </view>
+
+</scroll-view>
+ 

@@ -13,7 +13,8 @@ Page({
 	},
 
 	onLoad(params) {
-		newsdata.find('api_vampire_article_detail', params.id, null)
+		
+		newsdata.find('api_vampire_article_detail', {aid: params.id})
 			.then((res) => {
 				// console.log(res);
 				this.setData({

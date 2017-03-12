@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/mainlist/mainlist",
-    "pages/item/item",
+    "pages/navslist/navslist",
+    "pages/mainitem/mainitem",
     "pages/setting/setting",
     "pages/index/index",
     "pages/logs/logs"

@@ -8,22 +8,7 @@
 .head {
   line-height: 1;
 }
-.swiper {
-  height: 360rpx;
-  width: 100%;
-  position: relative;
-}
-.swiper image {
-  height: 100%;
-  width: 100%;
-}
-.swiper .title{
-	position: absolute;
-	top: 280rpx;
-	left: 20rpx;
-	font-size: 32rpx;
-	color: #fff;
-}
+
 .navs {
   display: flex;
   flex-direction: row;
@@ -50,80 +35,3 @@
   font-size: 32rpx;
 }
 
-
-
-.newitem {
-  display: flex;
-  border-top: 1rpx solid #f4f4f4;
-  padding: 30rpx;
-  cursor: pointer;
-}
-
-.newitem .poster {
-  width: 200rpx;
-  height: 140rpx;
-  margin-right: 30rpx;
-}
-
-.newitem .meta {
-  flex: 1;
-
-}
-
-.newitem .meta .title{
-  display: block;
-  font-size: 36rpx;
-  letter-spacing: 3rpx;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.newitem .meta .other {
-  color: #999;
-  margin-top: 24rpx;
-
-}
-.newitem .meta .other .source {
-  float: left;
-  font-size: 20rpx;
-}
-.newitem .meta .other .source .logo {
-  display: inline-block;
-  width: 20rpx;
-  height: 20rpx;
-  margin-right: 18rpx;
-}
-.newitem .meta .other .source .detail {
-  margin-right: 18rpx;
-}
-.newitem .meta .other .source .updateTime {
-
-}
-.newitem .meta .other .comment {
-  float: right;
-  margin-right: 30rpx;
-  font-size: 24rpx;
-
-}
-
-.tips {
-  font-size: 28rpx;
-  text-align: center;
-  padding: 50rpx;
-  color: #ccc;
-}
-
-.tips image {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 20rpx;
-}
-
-.tips image,
-.tips text {
-  vertical-align: middle;
-}

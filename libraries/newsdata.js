@@ -14,12 +14,10 @@ function fetchApi (type, params) {
 }
 
 module.exports = {
-  find (type, id, page) {
-    const params = page ? {id: id, page: page} : {aid: id}
+  find(type, params) {
     return fetchApi(type, params)
       .then(res => res.data)
-  },
-
+  }, 
   findOne (id) {
     return fetchApi('subject/' + id)
       .then(res => res.data)

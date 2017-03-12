@@ -1,4 +1,4 @@
-const newsdata = require('../../libraries/newsdata.js')
+const newsdata = require('../../libraries/newsdata.js');
 
 Page({
     data: {
@@ -14,7 +14,7 @@ Page({
      * @return {[type]} [description]
      */
     initLoad() {
-        newsdata.find('ClientNews','TY43,FOCUSTY43,TYTOPIC', 1, '')
+        newsdata.find('ClientNews', {id: 'TY43,FOCUSTY43,TYTOPIC', page: 1})
             .then(d => {
                 d.forEach((obj, index) => {
                     let type = obj.type;
@@ -24,6 +24,13 @@ Page({
                             loading: false
                         });
                     } else if (type == 'tytopic') {
+                        let staticId = '';
+                        let shortId = '';
+                        obj.item.forEach((val, index) => {
+                            staticId = val.staticId;
+                            shortId = staticId.slice(staticId.indexOf('=') + 1);
+                            val.staticId = shortId;
+                        });
                         this.setData({
                             navs: obj,
                             loading: false
@@ -70,7 +77,8 @@ Page({
             subtitle: '加载中...',
             loading: true
         })
-        newsdata.find('ClientNews','TY43', ++currentPage, '')
+        
+        newsdata.find('ClientNews', {id: 'TY43', page: ++currentPage})
             .then(d => {
                 let newnews = d[0];
                 let olditem = this.data.news.item;
