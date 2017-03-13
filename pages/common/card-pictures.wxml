@@ -1,0 +1,41 @@
+
+<template name="card-pictures">
+  <view class="picture" >
+    <view class="imgtitle">{{item.title}}</view>
+    <view class="imgs">
+      <block wx:if="{{item.thumbnails}}">
+        <image wx:for="{{item.thumbnails}}" mode="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
+        </image>
+      </block>
+      <block wx:elif="{{item.style.images.length > 0}}">
+        <image wx:for="{{item.style.images}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
+        </image>
+      </block>
+  </view>
+  </view>
+</template>
+
+
+<template name="card-pictures">
+<view class="picture" >
+  <view class="imgtitle">{{item.title}}</view>
+    <!--一张大图-->
+  <block wx:if="{{item.style.view == 'bigimg'}}">
+      <image class="bigimg" mode="widthFix" src="{{item.thumbnail}}"></image>
+  </block>
+  <!--三张小图-->
+  <block wx:else>
+    <view class="imgs">
+      <block wx:if="{{item.thumbnails}}">
+        <image wx:for="{{item.thumbnails}}" mode="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
+        </image>
+      </block>
+      <block wx:elif="{{item.style.images.length > 0}}">
+        <image wx:for="{{item.style.images}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
+        </image>
+      </block>
+    </view>
+  </block>
+
+</view>
+</template>

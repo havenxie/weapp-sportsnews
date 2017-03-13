@@ -24,23 +24,4 @@
 	color: #de0000;
 }
 
-.groupimg {
-	padding: 10rpx 30rpx;
-	padding-bottom: 40rpx;
-	border-bottom: 1rpx solid #f4f4f4;
-}
-.groupimg .imgtitle {
-	font-size: 36rpx;
-	line-height: 50rpx;
-}
-.groupimg .imgs {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	-webkit-justify-content: space-between;
-}
-.groupimg .imgs .img {
-	flex: 0 0 226rpx;
-	height: 150rpx;
-}
+

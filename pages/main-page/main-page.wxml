@@ -1,5 +1,7 @@
 <import src="../common/swiper.wxml"/>
 <import src="../common/card-article.wxml"/>
+<import src="../common/card-pictures.wxml"/>
+
 <loading hidden="{{!loading}}">加载中...</loading>
 <scroll-view scroll-y="true" class="container" bindscrolltolower="loadMore">
 
@@ -18,7 +20,12 @@
 
   <view class="news">
     <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
-      <template is="card-article" data="{{item}}" />
+      <block wx:if="{{item.type == 'doc'}}">
+        <template is="card-article" data="{{item}}" />
+      </block>
+      <block wx:elif="{{item.type == 'slide'}}">
+        <template is="card-pictures" data="{{item}}" />
+      </block>
     </block>
   </view>
 

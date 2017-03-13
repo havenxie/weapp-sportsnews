@@ -26,7 +26,7 @@ page {
 
 .newitem {
   display: flex;
-  border-top: 1rpx solid #f4f4f4;
+  border-bottom: 1rpx solid #f4f4f4;
   padding: 30rpx;
   cursor: pointer;
 }
@@ -82,6 +82,32 @@ page {
 
 }
 
+
+
+.picture {
+  padding: 10rpx 30rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.picture .imgtitle {
+  font-size: 36rpx;
+  line-height: 58rpx;
+}
+.picture .imgs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.picture .imgs .img {
+  flex: 0 0 226rpx;
+  height: 150rpx;
+}
+.picture .bigimg {
+  width: 100%;
+  height: 332rpx;
+}
 
 
 .tips {
