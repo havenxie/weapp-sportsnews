@@ -3,7 +3,7 @@
 ## 小程序预览
 
 <p align="center">
-  <img src="./images/GIF.gif" alt="体育新闻微信小程序演示" width="100%">
+  <img src="./images/GIF2.gif" alt="体育新闻微信小程序演示" width="100%">
 </p>
 
 ## 使用步骤
