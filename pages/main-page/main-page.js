@@ -8,7 +8,21 @@ Page({
         loading: true,
         hasMore: true,
     },
-
+    setUrlType(arr) {
+        let indexOfId = 0;
+        // let urlId = '';
+        let urlType = '';
+        let docUrl = '';
+        arr.forEach((substance, index) => {
+            if(substance.type == 'doc') {
+                indexOfId = substance.link.url.indexOf('?');
+                // urlId = substance.link.url.substr(indexOfId + 1);
+                urlType = substance.link.url.substr(29, indexOfId - 29);
+                // substance.urlId = urlId;
+                substance.urlType = urlType;
+            }
+        });
+    },
     /**
      * [initLoad 初始化加载数据]
      * @return {[type]} [description]
@@ -36,19 +50,8 @@ Page({
                             loading: false
                         });
                     } else if (type == 'list') {
-                        let indexOfId = 0;
-                        // let urlId = '';
-                        let urlType = '';
-                        let docUrl = '';
-                        obj.item.forEach((substance, index) => {
-                            if(substance.type == 'doc') {
-                                indexOfId = substance.link.url.indexOf('?');
-                                // urlId = substance.link.url.substr(indexOfId + 1);
-                                urlType = substance.link.url.substr(29, indexOfId - 29);
-                                // substance.urlId = urlId;
-                                substance.urlType = urlType;
-                            }
-                        });
+
+                        this.setUrlType(obj.item);
                         this.setData({
                             news: obj,
                             loading: false
@@ -94,6 +97,8 @@ Page({
         newsdata.find('ClientNews', {id: 'TY43', page: ++currentPage})
             .then(d => {
                 let newnews = d[0];
+                this.setUrlType(newnews.item);
+
                 let olditem = this.data.news.item;
                 newnews.item = olditem.concat(newnews.item);
                 this.setData({

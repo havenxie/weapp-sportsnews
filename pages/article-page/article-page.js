@@ -15,6 +15,8 @@ Page({
 		if(aid.indexOf(checkStr) >= 0) {
 			aid ='cmpp' + aid.substr(checkStr.length);
 		}
+		console.log(params.urltype)
+		console.log(aid)
 		newsdata.find(params.urltype, {aid: aid})
 			.then((res) => {
 				let wxml = htmlToWxml.html2json(res.body.text);

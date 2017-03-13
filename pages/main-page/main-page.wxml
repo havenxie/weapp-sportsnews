@@ -9,7 +9,7 @@
 
   <view class="navs">
     <block wx:for="{{navs.item}}" wx:for-index="index" wx:key="index">
-        <navigator url="../navslist/navslist?topicid={{item.staticId}}" data-type="{{navs.type}}" class="navitem">
+        <navigator url="../navs-page/navs-page?topicid={{item.staticId}}" data-type="{{navs.type}}" class="navitem">
           <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
           <text class="title">{{item.title}}</text>
         </navigator>

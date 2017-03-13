@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/main/main",
-    "pages/navslist/navslist",
-    "pages/article/article",
+    "pages/main-page/main-page",
+    "pages/navs-page/navs-page",
+    "pages/article-page/article-page",
     "pages/setting/setting",
     "pages/index/index",
     "pages/logs/logs"
@@ -16,16 +16,16 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color": "#ccc",
+    "color": "#000000",
     "selectorColor": "#de0000",
     "borderStyle": "white",
     "backgroundColor": "f9f9f9",
     "list": [
       {
         "text": "推荐",
-        "pagePath": "pages/main/main",
-        "iconPath": "images/mainlist.png",
-        "selectedIconPath": "images/mainlist-actived.png"
+        "pagePath": "pages/main-page/main-page",
+        "iconPath": "images/recommend.png",
+        "selectedIconPath": "images/recommend-actived.png"
       },
       {
         "text": "设置",

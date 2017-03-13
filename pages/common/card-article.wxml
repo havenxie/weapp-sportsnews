@@ -1,5 +1,5 @@
 <template name="card-article">
-	<navigator url="../article/article?urltype={{item.urlType}}&id={{item.documentId}}" wx:if="{{item.type != 'web'}}" data-type="{{news.type}}" data-url="{{item.id}}" class="newitem">
+	<navigator url="../article-page/article-page?urltype={{item.urlType}}&id={{item.documentId}}" wx:if="{{item.type != 'web'}}" data-type="{{news.type}}" data-url="{{item.id}}" class="newitem">
         <image class="poster" src="{{item.thumbnail}}"></image>
         <view class="meta">
           <text class="title">{{item.title}}</text>
