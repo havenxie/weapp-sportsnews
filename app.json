@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/mainlist/mainlist",
+    "pages/main/main",
     "pages/navslist/navslist",
-    "pages/mainitem/mainitem",
+    "pages/article/article",
     "pages/setting/setting",
     "pages/index/index",
     "pages/logs/logs"
@@ -23,7 +23,7 @@
     "list": [
       {
         "text": "推荐",
-        "pagePath": "pages/mainlist/mainlist",
+        "pagePath": "pages/main/main",
         "iconPath": "images/mainlist.png",
         "selectedIconPath": "images/mainlist-actived.png"
       },

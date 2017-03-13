@@ -36,6 +36,19 @@ Page({
                             loading: false
                         });
                     } else if (type == 'list') {
+                        let indexOfId = 0;
+                        // let urlId = '';
+                        let urlType = '';
+                        let docUrl = '';
+                        obj.item.forEach((substance, index) => {
+                            if(substance.type == 'doc') {
+                                indexOfId = substance.link.url.indexOf('?');
+                                // urlId = substance.link.url.substr(indexOfId + 1);
+                                urlType = substance.link.url.substr(29, indexOfId - 29);
+                                // substance.urlId = urlId;
+                                substance.urlType = urlType;
+                            }
+                        });
                         this.setData({
                             news: obj,
                             loading: false

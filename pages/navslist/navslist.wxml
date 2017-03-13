@@ -1,11 +1,11 @@
-<import src="../common/news-swiper.wxml"/>
-<import src="../common/news-list.wxml"/>
+<import src="../common/swiper.wxml"/>
+<import src="../common/card-article.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
 
 <scroll-view  scroll-y="true" class="container" bindscrolltolower="loadMore">
   
-   <block wx:for="{{subjects}}" wx:for-item="subclass">
+   <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subclass">
    <!-- 最上面的图片 -->
     <block wx:if="{{subclass.view == 'multiTitle'}}">
       <view class="multiTitle">
@@ -29,27 +29,27 @@
 
     <block wx:elif="{{subclass.view == 'list'}}">
       <view class="navtitle">{{subclass.title}}</view>
-      <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="index">
-         <template is="news-list" data="{{item}}" />
+      <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="news-list">
+         <template is="card-article" data="{{item}}" />
       </block>
     </block>
 
     <block wx:elif="{{subclass.view == 'album'}}">
       <view class="navtitle">{{subclass.title}}</view>
-      <block wx:for="{{subclass.podItems}}">
+      <block wx:for="{{subclass.podItems}}" wx:key="news-picture">
         <!-- 图片部分 -->
         <block wx:if="{{!item.hasVideo}}">
           <view class="groupimg" >
             <view class="imgtitle">{{item.title}}</view>
             <view class="imgs">
-              <image wx:for="{{item.thumbnails}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}">
+              <image wx:for="{{item.thumbnails}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
               </image>
           </view>
           </view>
         </block>
         <!-- 视频部分 -->
         <block wx:elif="{{item.hasVideo}}">
-            <template is="news-list" data="{{item}}" />
+            <template is="card-article" data="{{item}}" />
         </block>
       </block>
     </block>

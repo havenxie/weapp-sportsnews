@@ -26,6 +26,7 @@
     var special = makeMap("script,style");
 
     var HTMLParser = function (html, handler) {
+
         var index, chars, match, stack = [], last = html;
         stack.last = function () {
             return this[this.length - 1];
@@ -33,7 +34,6 @@
 
         while (html) {
             chars = true;
-
             // Make sure we're not in a script or style element
             if (!stack.last() || !special[stack.last()]) {
 
@@ -91,8 +91,9 @@
                 parseEndTag("", stack.last());
             }
 
-            if (html == last)
+            if (html == last) {
                 throw "Parse Error: " + html;
+            }
             last = html;
         }
 
@@ -173,12 +174,12 @@
     function q(v) {
         return '"' + v + '"';
     }
-
     function removeDOCTYPE(html) {
         return html
             .replace(/<\?xml.*\?>\n/, '')
             .replace(/<!doctype.*\>\n/, '')
-            .replace(/<!DOCTYPE.*\>\n/, '');
+            .replace(/<!DOCTYPE.*\>\n/, '')
+            .replace(/<!-- IFENG_DOC_ADVERT -->/, '');
     }
     global.html2json = function html2json(html) {
         html = removeDOCTYPE(html);

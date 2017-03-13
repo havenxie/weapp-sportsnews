@@ -4,29 +4,28 @@ Page({
 	data: {
 		title: '',
     	loading: true,
-		status: '',
-		online: 1,
-		channelInfo: {},
 		body: {},
 		disclaimer: '',
 		wxml: {}
 	},
 
 	onLoad(params) {
-		
-		newsdata.find('api_vampire_article_detail', {aid: params.id})
+		let aid = params.id;
+		let checkStr = 'news_article';
+		if(aid.indexOf(checkStr) >= 0) {
+			aid ='cmpp' + aid.substr(checkStr.length);
+		}
+		newsdata.find(params.urltype, {aid: aid})
 			.then((res) => {
-				// console.log(res);
+				let wxml = htmlToWxml.html2json(res.body.text);
+				this.setData({wxml: wxml});
+
 				this.setData({
 					loading: false,
-					status: res.status,
-					online: res.online,
-					channelInfo: res.channelInfo,
 					body: res.body,
 					disclaimer: res.disclaimer
 				});
-				let wxml = htmlToWxml.html2json(this.data.body.text);
-				this.setData({wxml: wxml});
+
 			})
 			.catch(err => {
 				this.setData({ title: '获取数据异常', loading: false })

@@ -1,5 +1,5 @@
-<import src="../common/news-swiper.wxml"/>
-<import src="../common/news-list.wxml"/>
+<import src="../common/swiper.wxml"/>
+<import src="../common/card-article.wxml"/>
 <loading hidden="{{!loading}}">加载中...</loading>
 <scroll-view scroll-y="true" class="container" bindscrolltolower="loadMore">
 
@@ -18,7 +18,7 @@
 
   <view class="news">
     <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
-      <template is="news-list" data="{{item}}" />
+      <template is="card-article" data="{{item}}" />
     </block>
   </view>
 
