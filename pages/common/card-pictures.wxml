@@ -1,5 +1,5 @@
 
-<template name="card-pictures">
+<!-- <template name="card-pictures">
   <view class="picture" >
     <view class="imgtitle">{{item.title}}</view>
     <view class="imgs">
@@ -13,11 +13,11 @@
       </block>
   </view>
   </view>
-</template>
+</template> -->
 
 
 <template name="card-pictures">
-<view class="picture" >
+<navigator class="picture" url="../picture-page/picture-page?urltype={{item.urlType}}&id={{item.documentId}}" wx:if="{{item.type != 'web'}}">
   <view class="imgtitle">{{item.title}}</view>
     <!--一张大图-->
   <block wx:if="{{item.style.view == 'bigimg'}}">
@@ -37,5 +37,5 @@
     </view>
   </block>
 
-</view>
+</navigator>
 </template>

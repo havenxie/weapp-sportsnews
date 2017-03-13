@@ -14,14 +14,15 @@ Page({
         let urlType = '';
         let docUrl = '';
         arr.forEach((substance, index) => {
-            if(substance.type == 'doc') {
+            if(substance.type != 'web') {
                 indexOfId = substance.link.url.indexOf('?');
                 // urlId = substance.link.url.substr(indexOfId + 1);
-                urlType = substance.link.url.substr(29, indexOfId - 29);
+                urlType = substance.link.url.substr(30, indexOfId - 30);
                 // substance.urlId = urlId;
                 substance.urlType = urlType;
             }
         });
+        return arr;
     },
     /**
      * [initLoad 初始化加载数据]
@@ -29,43 +30,53 @@ Page({
      */
     initLoad() {
         newsdata.find('ClientNews', {id: 'TY43,FOCUSTY43,TYTOPIC', page: 1})
-            .then(d => {
-                d.forEach((obj, index) => {
-                    let type = obj.type;
-                    if (type == 'focus') {
-                        this.setData({
-                            swiper: obj,
-                            loading: false
-                        });
-                    } else if (type == 'tytopic') {
-                        let staticId = '';
-                        let shortId = '';
-                        obj.item.forEach((val, index) => {
-                            staticId = val.staticId;
-                            shortId = staticId.slice(staticId.indexOf('=') + 1);
-                            val.staticId = shortId;
-                        });
-                        this.setData({
-                            navs: obj,
-                            loading: false
-                        });
-                    } else if (type == 'list') {
-
-                        this.setUrlType(obj.item);
-                        this.setData({
-                            news: obj,
-                            loading: false
-                        });
-                    }
-                })
+        .then(d => {
+            d.forEach((obj, index) => {
+                let validData = obj.item;
+                if(!validData) 
+                    return;
+                let typeData = obj.type;
+                if (typeData == 'focus') {  //首页轮播图
+                    validData.forEach((item, index) => {  //过滤web数据
+                        if(item.type == 'web') {
+                            validData.splice(index, 1);
+                        }
+                        item.urlType = 'ipadtestdoc';//项目中所有urlType都要优化，否则太乱了
+                    });
+                    obj.item = validData;
+                    this.setData({
+                        swiper: obj,
+                        loading: false
+                    });
+                } else if (typeData == 'tytopic') {//首页导航栏
+                    let staticId = '';
+                    let shortId = ''; //这里以后要改成urlType和documentId形式，这样可以统一格式
+                    validData.forEach((item, index) => {
+                        staticId = item.staticId;
+                        shortId = staticId.slice(staticId.indexOf('=') + 1);
+                        item.staticId = shortId;
+                    });
+                    obj.item = validData;
+                    this.setData({
+                        navs: obj,
+                        loading: false
+                    });
+                } else if (typeData == 'list') {//首页新闻列表
+                    obj.item = this.setUrlType(validData);
+                    this.setData({
+                        news: obj,
+                        loading: false
+                    });
+                }
             })
-            .catch(e => {
-                console.error(e)
-                this.setData({
-                    movies: [],
-                    loading: false
-                })
+        })
+        .catch(e => {
+            console.error(e)
+            this.setData({
+                movies: [],
+                loading: false
             })
+        })
     },
 
     /**

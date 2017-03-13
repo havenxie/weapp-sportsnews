@@ -3,6 +3,7 @@
     "pages/main-page/main-page",
     "pages/navs-page/navs-page",
     "pages/article-page/article-page",
+    "pages/picture-page/picture-page",
     "pages/setting/setting",
     "pages/index/index",
     "pages/logs/logs"

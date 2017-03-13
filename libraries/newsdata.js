@@ -1,4 +1,4 @@
-const API_URL = 'http://api.iclient.ifeng.com';
+const API_URL = 'https://api.iclient.ifeng.com';
 const Promise = require('./bluebird')
 
 function fetchApi (type, params) {

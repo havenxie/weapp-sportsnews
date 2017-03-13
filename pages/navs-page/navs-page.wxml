@@ -39,15 +39,8 @@
       <view class="navtitle">{{subclass.title}}</view>
       <block wx:for="{{subclass.podItems}}" wx:key="news-picture">
         <!-- 图片部分 -->
-        <block wx:if="{{!item.hasVideo}}">
-        <template is="card-pictures" data="{{item}}"/>
-  <!--         <view class="groupimg" >
-            <view class="imgtitle">{{item.title}}</view>
-            <view class="imgs">
-              <image wx:for="{{item.thumbnails}}" mode="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
-              </image>
-          </view>
-          </view> -->
+        <block wx:if="{{item.hasSlide}}">
+          <template is="card-pictures" data="{{item}}"/>
         </block>
         <!-- 视频部分 -->
         <block wx:elif="{{item.hasVideo}}">

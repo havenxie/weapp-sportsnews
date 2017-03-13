@@ -22,7 +22,7 @@ Page({
                         if(substance.style == 'doc') {
                         indexOfId = substance.links[0].url.indexOf('?');
                         // urlId = substance.links[0].url.substr(indexOfId + 1);
-                        urlType = substance.links[0].url.substr(29, indexOfId - 29);
+                        urlType = substance.links[0].url.substr(30, indexOfId - 30);
                         // substance.urlId = urlId;
                         substance.urlType = urlType;
                         }
