@@ -4,8 +4,8 @@
 
 <loading hidden="{{!loading}}">加载中...</loading>
 
-<scroll-view  scroll-y="true" class="container" bindscrolltolower="loadMore">
-  
+<!-- <scroll-view  scroll-y="true" class="container" bindscrolltolower="loadMore"> -->
+<view class="container">
    <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subclass">
    <!-- 最上面的图片 -->
     <block wx:if="{{subclass.view == 'multiTitle'}}">
@@ -58,5 +58,6 @@
      <view wx:else><text>没有更多内容了</text></view>
  </view>
 
-</scroll-view>
+</view>
+<!-- </scroll-view> -->
  

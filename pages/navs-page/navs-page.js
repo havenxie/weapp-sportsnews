@@ -10,6 +10,10 @@ Page({
     },
 
     loadData(params) {
+        this.setData({
+            subtitle: '加载中...',
+            loading: true
+        })
         newsdata.find('TopicApiForCmpp', params)
         .then(d => {
             d.body.subjects.forEach((obj, index) => {

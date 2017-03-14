@@ -6,7 +6,10 @@ page {
   display: flex;
   flex-direction: column;
 }
-
+.container {
+  min-height: 100%;
+  font-size: 32rpx;
+}
 .swiper {
   height: 360rpx;
   width: 100%;

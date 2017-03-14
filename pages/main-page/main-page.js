@@ -7,6 +7,7 @@ Page({
         news: {},
         loading: true,
         hasMore: true,
+        subtitle: ''
     },
     setUrlType(arr) {
         let indexOfId = 0;
@@ -29,6 +30,10 @@ Page({
      * @return {[type]} [description]
      */
     initLoad() {
+        this.setData({
+            subtitle: '加载中...',
+            loading: true
+        })
         newsdata.find('ClientNews', {id: 'TY43,FOCUSTY43,TYTOPIC', page: 1})
         .then(d => {
             d.forEach((obj, index) => {
@@ -134,4 +139,11 @@ Page({
         this.initLoad();
         wx.stopPullDownRefresh();
     },
+    /**
+     * [onReachBottom 上拉加载更多]
+     * @return {[type]} [description]
+     */
+    onReachBottom() {
+        this.loadMore();
+    }
 })

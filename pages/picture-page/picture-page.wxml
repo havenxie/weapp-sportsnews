@@ -1,5 +1,5 @@
 <import src="../common/swiper.wxml"/>
-<view class="background">
+<scroll-view scroll-y="true" class="background">
 		<swiper class="slide">
 			<block wx:for="{{slides}}" wx:for-index="index" wx:key="index">
 				<swiper-item class="swiper-item" bindtap="tapSwiper">
@@ -17,4 +17,4 @@
 			  	</swiper-item>
 			</block>
 		</swiper>
-</view>
+</scroll-view>
