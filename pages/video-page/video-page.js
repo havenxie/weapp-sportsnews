@@ -1,9 +1,15 @@
 Page({
 	data: {
 		src: '',
+		controls: true,
+		loading: true,
+	},
+	hideControl() {
+		this.setData({
+			controls: !this.data.controls,
+		});
 	},
 	onLoad(params) {
-		console.log(params)
 		this.setData({
 			src: params.videoUrl,
 			loading: false,

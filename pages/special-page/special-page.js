@@ -7,23 +7,37 @@ Page({
     	head: {},
         loading: true,
         hasMore: true,
+        navTitle: [],
+        toTitle: '',
         localParams: {}
     },
 
     loadData(option) {
-        let params = option;
-        let urlType = params.urlType;
-        delete params.urlType; //返回的是一个bool值
+        let params = {};
+        let urlType = option.urlType;
+        for(let index in option) {
+            if(index != 'urlType') {
+                params[index] = option[index];
+            }
+        }
+        // delete params.urlType; //返回的是一个bool值
         this.setData({
             subtitle: '加载中...',
             loading: true
         })
         newsdata.find(urlType, params)
         .then(d => {
+            let tempTitle = [];
+            d.body.subjects.forEach((item, index) => {
+                if(item.title) {
+                    tempTitle.push(item.title);
+                }
+            });
             this.setData({
                 content: d.body.content,
                 subjects: d.body.subjects,
                 head: d.body.head,
+                navTitle: tempTitle,
                 loading: false,
                 hasMore: false
             });
@@ -60,9 +74,13 @@ Page({
             fail: (err) => {console.log(err)}
         });
     },
-
-    onLoad(params) {
+    moveTo(event) {
         this.setData({
+            toTitle: event.currentTarget.dataset.id,
+        });
+    },
+    onLoad(params) {
+        this.setData({//存储数据留着给刷新用
             localParams: params,
         });
         this.loadData(this.data.localParams);

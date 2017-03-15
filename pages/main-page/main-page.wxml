@@ -1,19 +1,23 @@
-<import src="../common/swiper.wxml"/>
-<import src="../common/card-article.wxml"/>
-<import src="../common/card-pictures.wxml"/>
+<import src="../common/swiper-card.wxml"/>
+<import src="../common/article-card.wxml"/>
+<import src="../common/picture-card.wxml"/>
+<import src="../common/video-card.wxml"/>
+<import src="../common/topic2-card.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
 
-<!-- <scroll-view scroll-y="true" class="container" bindscrolltolower="loadMore" bindscrolltoupper="refesh"> -->
+<view class="container" scroll-top="{{scrollTop}}">
+
+<!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadMore"  scroll-top="{{scrollTop}}"> -->
+
 <!-- 轮播图部分 -->
-<view class="container">
-  <view class="head">
-    <template is="swiper" data="{{swiper}}"></template>
-  </view>
+<view class="head">
+  <template is="swiper" data="{{swiper}}"></template>
+</view>
 
 <!-- 专题栏导航部分 -->
 <view class="special">
-  <block wx:for="{{special.item}}" wx:for-index="index" wx:key="index">
+  <block wx:for="{{special.item}}" wx:key="special">
     <view class="navitem" bindtap='navToSpecial' data-id="{{item.id}}">
         <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
         <text class="title">{{item.title}}</text>     
@@ -23,20 +27,24 @@
 
 <!-- 新闻列表部分 -->
 <view class="news">
-  <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
-    <block wx:if="{{item.type == 'doc'}}">
-      <template is="card-article" data="{{item}}" />
+  <block wx:for="{{news.item}}" wx:key="news">
+    <block wx:if="{{item.type == 'doc'}}"><!--文章-->
+      <template is="article-card" data="{{item}}" />
     </block>
-    <block wx:elif="{{item.type == 'slide'}}">
-      <template is="card-pictures" data="{{item}}" />
+    <block wx:elif="{{item.type == 'slide'}}"><!--图片-->
+      <template is="picture-card" data="{{item}}" />
+    </block>
+    <block wx:elif="{{item.type == 'topic2'}}"><!--中超专题-->
+      <template is="topic2-card" data="{{item}}" />
     </block>
   </block>
 </view>
 
-  <view class="tips">
-      <view wx:if="{{hasMore}}"><image src="/images/loading.gif" mode="aspectFill"/><text>玩了命的加载中...</text></view>
-      <view wx:else><text>没有更多内容了</text></view>
-  </view>
+<!-- 加载更多部分 -->
+<view class="tips">
+    <view wx:if="{{hasMore}}"><image src="/images/loading.gif" mode="aspectFill"/><text>玩了命的加载中...</text></view>
+    <view wx:else><text>没有更多内容了</text></view>
+</view>
 
 <!-- </scroll-view> -->
 </view>

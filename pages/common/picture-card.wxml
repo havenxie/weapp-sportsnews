@@ -1,5 +1,5 @@
 
-<template name="card-pictures">
+<template name="picture-card">
 <view class="picture" bindtap="navToPicture" data-id="{{item.id ? item.id : item.links[0].url}}" wx:if="{{item.type != 'web'}}">
   <view class="imgtitle">{{item.title}}</view>
     <!--一张大图-->

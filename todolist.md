@@ -6,7 +6,6 @@ type: "web"          这是广告要去掉
 type: "sports_live"  体育直播
 
 todo:
-各个页面的视屏部分的详细页
 直播页面详情
 
 

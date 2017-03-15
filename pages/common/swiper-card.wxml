@@ -1,8 +1,8 @@
 <!-- 轮播图组件子元素 -->
 
 <template name="swiper-item">
-  <swiper-item>
-    <view bindtap='navToPicture' data-id="{{item.id ? item.id : item.links[0].url}}" class="slide-nav">
+  <swiper-item wx:if="{{!(item.type ? item.type == 'web' : item.links[0].type == 'web')}}"><!--不渲染web网页内容-->
+    <view class="slide-nav" bindtap='navToPicture' data-id="{{item.id ? item.id : item.links[0].url}}" >
     <image src="{{item.thumbnail}}" mode="aspectFill"/>
     <text class="title">{{item.title}}</text>
     </view>

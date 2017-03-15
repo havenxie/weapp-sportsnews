@@ -1,4 +1,7 @@
-<import src="../common/swiper.wxml"/>
+<import src="../common/swiper-card.wxml"/>
+
+<loading hidden="{{!loading}}">加载中...</loading>
+
 <scroll-view scroll-y="true" class="background">
 		<swiper class="slide">
 			<block wx:for="{{slides}}" wx:for-index="index" wx:key="index">
@@ -13,7 +16,6 @@
 				    		<text class="current">{{index + 1}}</text>/<text class="total">{{slides.length}}</text>
 				    	</view>
 				    </view>
-
 			  	</swiper-item>
 			</block>
 		</swiper>

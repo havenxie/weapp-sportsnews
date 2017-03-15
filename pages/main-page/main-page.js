@@ -27,12 +27,6 @@ Page({
                     return;
                 let typeData = obj.type;
                 if (typeData == 'focus') {  //首页轮播图
-                    validData.forEach((item, index) => {  //过滤web数据
-                        if(item.type == 'web') {
-                            validData.splice(index, 1);
-                        }
-                    });
-                    obj.item = validData;
                     this.setData({
                         swiper: obj,
                         loading: false

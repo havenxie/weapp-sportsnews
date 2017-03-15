@@ -7,8 +7,9 @@ page {
   flex-direction: column;
 }
 .container {
-  min-height: 100%;
+  height: 100%;
   font-size: 32rpx;
+  width: 100%;
 }
 .swiper {
   height: 360rpx;
@@ -88,7 +89,18 @@ page {
   float: right;
   margin-right: 30rpx;
   font-size: 24rpx;
-
+  display: inline-block;
+}
+.newitem .meta .other .zhuanti {
+  float: right;
+  margin-right: 30rpx;
+  margin-top: -2rpx;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  color: #de0000;
+  border: 1rpx solid #de0000;
+  border-radius: 6rpx;
+  display: inline-block;
 }
 
 

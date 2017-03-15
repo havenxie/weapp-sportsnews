@@ -1,4 +1,6 @@
-
-<view class="video background">
-	<video src="{{src}}"   controls ></video>
-</view>
+<loading hidden="{{!loading}}">加载中...</loading>
+<scroll-view class="background">
+	<view class="video" bindtap="hideControl">
+		<video src="{{src}}"   controls="{{controls}}" ></video>
+	</view>
+</scroll-view>
