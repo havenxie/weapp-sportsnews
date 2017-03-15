@@ -80,7 +80,6 @@ Page({
         newsdata.find('ClientNews', {id: 'TY43', page: ++currentPage})
             .then(d => {
                 let newnews = d[0];
-                this.setUrlType(newnews.item);
 
                 let olditem = this.data.news.item;
                 newnews.item = olditem.concat(newnews.item);

@@ -6,8 +6,8 @@ module.exports = {
         let indexOfId = url.indexOf('?');
         let urlId = url.substr(indexOfId + 1);
         let urlType = url.substr(newsdata.API_URL.length + 1, indexOfId - newsdata.API_URL.length -1);
-        console.log(urlId);
-        console.log(urlType);
+        // console.log(urlId);
+        // console.log(urlType);
         return '?urlType=' + urlType + '&' + urlId;
     },
 }
