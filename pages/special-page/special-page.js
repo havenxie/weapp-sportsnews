@@ -1,4 +1,5 @@
 const newsdata = require('../../libraries/newsdata.js');
+const dealUrl = require('../../libraries/dealUrl.js');
 Page({
     data: {
     	content: {},//存放说明、分享链接等信息
@@ -9,33 +10,16 @@ Page({
         localParams: {}
     },
 
-    loadData(params) {
+    loadData(option) {
+        let params = option;
+        let urlType = params.urlType;
+        delete params.urlType; //返回的是一个bool值
         this.setData({
             subtitle: '加载中...',
             loading: true
         })
-        newsdata.find('TopicApiForCmpp', params)
+        newsdata.find(urlType, params)
         .then(d => {
-            d.body.subjects.forEach((obj, index) => {
-                if(obj.podItems && (obj.podItems.length > 0)) {
-                    let indexOfId = 0;
-                    // let urlId = '';
-                    let urlType = '';
-                    let docUrl = '';
-                    obj.podItems.forEach((substance, index) => {
-                        if(substance.style == 'doc') {
-                        indexOfId = substance.links[0].url.indexOf('?');
-                        // urlId = substance.links[0].url.substr(indexOfId + 1);
-                        urlType = substance.links[0].url.substr(30, indexOfId - 30);
-                        // substance.urlId = urlId;
-                        
-                        } else if(substance.style == 'video') {
-                            urlType = substance.links[0].url.slice(21);
-                        }
-                        substance.urlType = urlType;
-                    });
-                }
-            });
             this.setData({
                 content: d.body.content,
                 subjects: d.body.subjects,
@@ -43,9 +27,6 @@ Page({
                 loading: false,
                 hasMore: false
             });
-            // console.log(this.data.content);
-            // console.log(this.data.subjects);
-            // console.log(this.data.head);
         })
         .catch(e => {
             this.setData({
@@ -55,11 +36,36 @@ Page({
             console.error(e)
         })
     },
+    navToPicture(event) {
+        let str = dealUrl.getUrlTypeId(event);
+            wx.navigateTo({
+            url: '../picture-page/picture-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToArticle(event) {
+        let str = dealUrl.getUrlTypeId(event);
+        wx.navigateTo({
+            url: '../article-page/article-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToVideo(event) {
+        let str = event.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '../video-page/video-page?videoUrl=' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+
     onLoad(params) {
         this.setData({
             localParams: params,
         });
-    	this.loadData(this.data.localParams);
+        this.loadData(this.data.localParams);
     },
     onPullDownRefresh() {
         this.loadData(this.data.localParams);

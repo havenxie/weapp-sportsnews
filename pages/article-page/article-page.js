@@ -9,15 +9,11 @@ Page({
 		wxml: {}
 	},
 
-	onLoad(params) {
-		let aid = params.id;
-		let checkStr = 'news_article';
-		if(aid.indexOf(checkStr) >= 0) {
-			aid ='cmpp' + aid.substr(checkStr.length);
-		}
-		console.log(params.urltype)
-		console.log(aid)
-		newsdata.find(params.urltype, {aid: aid})
+	onLoad(option) {
+		 let params = option;
+        let urlType = params.urlType;
+        delete params.urlType; //返回的是一个bool值
+		newsdata.find(urlType, params)
 			.then((res) => {
 				console.log(res);
 				let wxml = htmlToWxml.html2json(res.body.text);

@@ -3,10 +3,9 @@ Page({
 		src: '',
 	},
 	onLoad(params) {
-		let API_URL_video = "http://ips.ifeng.com/";
 		console.log(params)
 		this.setData({
-			src: API_URL_video + params.urltype,
+			src: params.videoUrl,
 			loading: false,
 		});
 	},

@@ -1,23 +1,6 @@
 
-<!-- <template name="card-pictures">
-  <view class="picture" >
-    <view class="imgtitle">{{item.title}}</view>
-    <view class="imgs">
-      <block wx:if="{{item.thumbnails}}">
-        <image wx:for="{{item.thumbnails}}" mode="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
-        </image>
-      </block>
-      <block wx:elif="{{item.style.images.length > 0}}">
-        <image wx:for="{{item.style.images}}" moed="aspectFill" class="img"  wx:for-item="src" src="{{src}}" wx:key="img">
-        </image>
-      </block>
-  </view>
-  </view>
-</template> -->
-
-
 <template name="card-pictures">
-<navigator class="picture" url="../picture-page/picture-page?urltype={{item.urlType}}&id={{item.documentId}}" wx:if="{{item.type != 'web'}}">
+<view class="picture" bindtap="navToPicture" data-id="{{item.id ? item.id : item.links[0].url}}" wx:if="{{item.type != 'web'}}">
   <view class="imgtitle">{{item.title}}</view>
     <!--一张大图-->
   <block wx:if="{{item.style.view == 'bigimg'}}">
@@ -37,5 +20,5 @@
     </view>
   </block>
 
-</navigator>
+</view>
 </template>

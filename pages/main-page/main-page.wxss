@@ -2,27 +2,27 @@
   line-height: 1;
 }
 
-.navs {
+.special {
   display: flex;
   flex-direction: row;
   width: 100%;
   list-style: none;
   margin: 20rpx 0;
 }
-.navs .navitem {
+.special .navitem {
   flex: 1 1 150rpx;
   text-align: center;
   padding-top: 20rpx;
   border-right: 2rpx solid #f4f4f4;
 }
-.navs .navitem:last-child {
+.special .navitem:last-child {
   border-right: none;
 }
-.navs .navitem .navimg {
+.special .navitem .navimg {
   width: 75rpx;
   height: 75rpx;
 }
-.navs .navitem .title {
+.special .navitem .title {
   margin-top: 10rpx;
   display: block;
   font-size: 32rpx;

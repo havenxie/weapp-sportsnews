@@ -1,29 +1,14 @@
 const newsdata = require('../../libraries/newsdata.js');
+const dealUrl = require('../../libraries/dealUrl.js');
 
 Page({
     data: {
         swiper: {},
-        navs: {},
+        special: {},
         news: {},
         loading: true,
         hasMore: true,
         subtitle: ''
-    },
-    setUrlType(arr) {
-        let indexOfId = 0;
-        // let urlId = '';
-        let urlType = '';
-        let docUrl = '';
-        arr.forEach((substance, index) => {
-            if(substance.type != 'web') {
-                indexOfId = substance.link.url.indexOf('?');
-                // urlId = substance.link.url.substr(indexOfId + 1);
-                urlType = substance.link.url.substr(30, indexOfId - 30);
-                // substance.urlId = urlId;
-                substance.urlType = urlType;
-            }
-        });
-        return arr;
     },
     /**
      * [initLoad 初始化加载数据]
@@ -46,28 +31,18 @@ Page({
                         if(item.type == 'web') {
                             validData.splice(index, 1);
                         }
-                        item.urlType = 'ipadtestdoc';//项目中所有urlType都要优化，否则太乱了
                     });
                     obj.item = validData;
                     this.setData({
                         swiper: obj,
                         loading: false
                     });
-                } else if (typeData == 'tytopic') {//首页导航栏
-                    let staticId = '';
-                    let shortId = ''; //这里以后要改成urlType和documentId形式，这样可以统一格式
-                    validData.forEach((item, index) => {
-                        staticId = item.staticId;
-                        shortId = staticId.slice(staticId.indexOf('=') + 1);
-                        item.staticId = shortId;
-                    });
-                    obj.item = validData;
+                } else if (typeData == 'tytopic') {//首页专题导航
                     this.setData({
-                        navs: obj,
+                        special: obj,
                         loading: false
                     });
                 } else if (typeData == 'list') {//首页新闻列表
-                    obj.item = this.setUrlType(validData);
                     this.setData({
                         news: obj,
                         loading: false
@@ -82,14 +57,6 @@ Page({
                 loading: false
             })
         })
-    },
-
-    /**
-     * [onLoad 载入页面时执行的生命周期初始函数]
-     * @return {[type]} [description]
-     */
-    onLoad() {
-       this.initLoad();
     },
 
     /**
@@ -130,6 +97,55 @@ Page({
                 console.error(e)
             })
     },
+    navToSpecial(event) {
+        let str = dealUrl.getUrlTypeId(event);
+        wx.navigateTo({
+            url: '../special-page/special-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToPicture(event) {
+        let str = dealUrl.getUrlTypeId(event);
+        wx.navigateTo({
+            url: '../picture-page/picture-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToArticle(event) {
+        let str = dealUrl.getUrlTypeId(event);
+        wx.navigateTo({
+            url: '../article-page/article-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToVideo(event) {
+        let str = event.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '../video-page/video-page?videoUrl=' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    navToVideo(event) {
+        // let str = dealUrl.getUrlTypeId(event);
+        console.log(event.currentTarget.dataset.id);
+        wx.navigateTo({
+            url: '../video-page/video-page' + str,
+            success: (res) => {},
+            fail: (err) => {console.log(err)}
+        });
+    },
+    
+    /**
+     * [onLoad 载入页面时执行的生命周期初始函数]
+     * @return {[type]} [description]
+     */
+    onLoad() {
+       this.initLoad();
+    },
 
     /**
      * [onPullDownRefresh 下拉刷新数据]
@@ -139,6 +155,7 @@ Page({
         this.initLoad();
         wx.stopPullDownRefresh();
     },
+
     /**
      * [onReachBottom 上拉加载更多]
      * @return {[type]} [description]

@@ -5,30 +5,33 @@
 <loading hidden="{{!loading}}">加载中...</loading>
 
 <!-- <scroll-view scroll-y="true" class="container" bindscrolltolower="loadMore" bindscrolltoupper="refesh"> -->
+<!-- 轮播图部分 -->
 <view class="container">
   <view class="head">
     <template is="swiper" data="{{swiper}}"></template>
   </view>
 
-  <view class="navs">
-    <block wx:for="{{navs.item}}" wx:for-index="index" wx:key="index">
-        <navigator url="../special-page/special-page?topicid={{item.staticId}}"  class="navitem">
-          <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
-          <text class="title">{{item.title}}</text>
-        </navigator>
-      </block>
-  </view>
-
-  <view class="news">
-    <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
-      <block wx:if="{{item.type == 'doc'}}">
-        <template is="card-article" data="{{item}}" />
-      </block>
-      <block wx:elif="{{item.type == 'slide'}}">
-        <template is="card-pictures" data="{{item}}" />
-      </block>
+<!-- 专题栏导航部分 -->
+<view class="special">
+  <block wx:for="{{special.item}}" wx:for-index="index" wx:key="index">
+    <view class="navitem" bindtap='navToSpecial' data-id="{{item.id}}">
+        <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
+        <text class="title">{{item.title}}</text>     
+    </view>
     </block>
-  </view>
+</view>
+
+<!-- 新闻列表部分 -->
+<view class="news">
+  <block wx:for="{{news.item}}" wx:for-index="index" wx:key="index">
+    <block wx:if="{{item.type == 'doc'}}">
+      <template is="card-article" data="{{item}}" />
+    </block>
+    <block wx:elif="{{item.type == 'slide'}}">
+      <template is="card-pictures" data="{{item}}" />
+    </block>
+  </block>
+</view>
 
   <view class="tips">
       <view wx:if="{{hasMore}}"><image src="/images/loading.gif" mode="aspectFill"/><text>玩了命的加载中...</text></view>

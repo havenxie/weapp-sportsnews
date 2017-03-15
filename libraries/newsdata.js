@@ -14,6 +14,7 @@ function fetchApi (type, params) {
 }
 
 module.exports = {
+  API_URL: API_URL,
   find(type, params) {
     return fetchApi(type, params)
       .then(res => res.data)
