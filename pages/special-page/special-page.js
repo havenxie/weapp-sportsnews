@@ -28,8 +28,11 @@ Page({
                         // urlId = substance.links[0].url.substr(indexOfId + 1);
                         urlType = substance.links[0].url.substr(30, indexOfId - 30);
                         // substance.urlId = urlId;
-                        substance.urlType = urlType;
+                        
+                        } else if(substance.style == 'video') {
+                            urlType = substance.links[0].url.slice(21);
                         }
+                        substance.urlType = urlType;
                     });
                 }
             });

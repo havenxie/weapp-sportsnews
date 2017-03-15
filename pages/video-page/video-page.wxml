@@ -1,0 +1,4 @@
+
+		<view class="video background">
+			<video src="{{src}}"   controls ></video>
+		</view>

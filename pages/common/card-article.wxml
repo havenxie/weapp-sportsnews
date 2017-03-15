@@ -1,4 +1,4 @@
-<template name="card-article">
+<template name="article">
 	<navigator url="../article-page/article-page?urltype={{item.urlType}}&id={{item.documentId}}" wx:if="{{item.type != 'web'}}" data-type="{{news.type}}" data-url="{{item.id}}" class="newitem">
         <image class="poster" src="{{item.thumbnail}}"></image>
         <view class="meta">
@@ -13,4 +13,30 @@
           </view>
         </view>
     </navigator>
+</template>
+
+<template name="video">
+  <navigator url="../video-page/video-page?urltype={{item.urlType}}" class="newitem">
+        <image class="poster" src="{{item.thumbnail}}"></image>
+        <view class="meta">
+          <text class="title">{{item.title}}</text>
+          <view class="other">
+            <view class="source">
+              <image wx:if="{{item.subscribe.logo}}" src="{{item.subscribe.logo}}" class="logo" />
+              <text wx:if="{{item.source}}" class="detail">{{item.source}}</text>
+              <!-- <text wx:if="{{item.updateTime}}" class="updateTime">{{item.updateTime}}</text> -->
+            </view>
+            <text wx:if="{{item.commentsall}}" class="comment">{{item.commentsall}}</text>
+          </view>
+        </view>
+    </navigator>
+</template>
+
+<template name="card-article">
+  <block wx:if="{{item.documentId != 'default'}}">
+    <template is="article" data="{{item}}"></template>
+  </block>
+  <block wx:else>
+    <template is="video" data="{{item}}"></template>
+  </block>
 </template>

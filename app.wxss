@@ -23,7 +23,7 @@ page {
 	position: absolute;
 	top: 280rpx;
 	left: 20rpx;
-	font-size: 32rpx;
+	font-size: 36rpx;
 	color: #fff;
 }
 .slide-nav {

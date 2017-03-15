@@ -19,6 +19,7 @@ Page({
 		console.log(aid)
 		newsdata.find(params.urltype, {aid: aid})
 			.then((res) => {
+				console.log(res);
 				let wxml = htmlToWxml.html2json(res.body.text);
 				this.setData({wxml: wxml});
 

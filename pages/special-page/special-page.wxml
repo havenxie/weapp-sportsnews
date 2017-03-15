@@ -43,7 +43,7 @@
           <template is="card-pictures" data="{{item}}"/>
         </block>
         <!-- 视频部分 -->
-        <block wx:elif="{{item.hasVideo}}">
+        <block wx:else>
             <template is="card-article" data="{{item}}" />
         </block>
       </block>
