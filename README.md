@@ -10,18 +10,15 @@
 
 1. 将仓库克隆到本地：
   ```bash
-  $ git clone https://github.com/havenxie/weapp-sportsnews.git weapp-sportsnews --depth 1
-  $ cd weapp-sportsnews
+ $ git clone https://github.com/havenxie/weapp-sportsnews.git weapp-sportsnews --depth 1
+
+ $ cd weapp-sportsnews
   ```
 
 2. 打开`微信Web开发者工具`
   - 我用的是0.11.122100版本
   - 不需要所谓的破解，网上所谓的破解只是针对之前的`0.9.092100`版本，新的官方版本不需要破解！
-  - 下载链接：`https://pan.baidu.com/s/1qYld6Vi`   
-    + `wechat_web_devtools_0.9.092300_x64.exe`（Windows 64位）
-    + `wechat_web_devtools_0.9.092300_ia32.exe`（Windows 32位）
-    + `wechat_web_devtools_0.9.092300.dmg`（macOS）
-
+  - 下载链接：`https://pan.baidu.com/s/1qYld6Vi`
 
 3. 选择`添加项目`，填写或选择相应信息
   - AppID：点击右下角`无AppID`（我也没有资格拿到）
@@ -29,13 +26,15 @@
   - 项目目录：选择刚刚克隆的文件夹
   - 点击`添加项目`
 
-4. 你可以选择在`微信Web开发者工具`中编码（也可选择你喜欢的编辑器，我用的是sublime）
+4. 你可以选择在`微信Web开发者工具`中编码（也可选择你喜欢的编辑器，我用的是sublime,现在发现vs code比sublime好用多了）
 
 6. 通过左下角重启按钮，刷新编码过后的预览
 
 7. 代码中用到了大量ES6的语法，可能需要node环境，请自行安装
 
 8. 剩下的可以自由发挥了
+
+9. 设置页没有做，因为不知道要做些什么，假如你有兴趣的话可以自己发挥
 
 
 ## 微信小程序基本教程
@@ -127,10 +126,8 @@ App({
   * wxml指的是`Wei Xin Style Sheet`
   * 用于定义页面样式的
   * 语法遵循CSS语法，扩展了CSS基本用法和长度单位（主要就是rpx响应式像素）
-  * 未完待续...
-
-
-### 未完待续...
+ 
+### 至此告一段落，啥时候再有兴趣再来继续添加功能吧。 
 
 
 
