@@ -19,38 +19,41 @@ Page({
             subtitle: '加载中...',
             loading: true
         })
-        newsdata.find('ClientNews', {id: 'TY43,FOCUSTY43,TYTOPIC', page: 1})
-        .then(d => {
-            d.forEach((obj, index) => {
-                let validData = obj.item;
-                if(!validData) 
-                    return;
-                let typeData = obj.type;
-                if (typeData == 'focus') {  //首页轮播图
-                    this.setData({
-                        swiper: obj,
-                        loading: false
-                    });
-                } else if (typeData == 'tytopic') {//首页专题导航
-                    this.setData({
-                        special: obj,
-                        loading: false
-                    });
-                } else if (typeData == 'list') {//首页新闻列表
-                    this.setData({
-                        news: obj,
-                        loading: false
-                    });
-                }
+        newsdata.find('ClientNews', {
+                id: 'TY43,FOCUSTY43,TYTOPIC',
+                page: 1
             })
-        })
-        .catch(e => {
-            console.error(e)
-            this.setData({
-                movies: [],
-                loading: false
+            .then(d => {
+                d.forEach((obj, index) => {
+                    let validData = obj.item;
+                    if (!validData)
+                        return;
+                    let typeData = obj.type;
+                    if (typeData == 'focus') { //首页轮播图
+                        this.setData({
+                            swiper: obj,
+                            loading: false
+                        });
+                    } else if (typeData == 'tytopic') { //首页专题导航
+                        this.setData({
+                            special: obj,
+                            loading: false
+                        });
+                    } else if (typeData == 'list') { //首页新闻列表
+                        this.setData({
+                            news: obj,
+                            loading: false
+                        });
+                    }
+                })
             })
-        })
+            .catch(e => {
+                console.error(e)
+                this.setData({
+                    movies: [],
+                    loading: false
+                })
+            })
     },
 
     /**
@@ -70,8 +73,11 @@ Page({
             subtitle: '加载中...',
             loading: true
         })
-        
-        newsdata.find('ClientNews', {id: 'TY43', page: ++currentPage})
+
+        newsdata.find('ClientNews', {
+                id: 'TY43',
+                page: ++currentPage
+            })
             .then(d => {
                 let newnews = d[0];
 
@@ -95,7 +101,9 @@ Page({
         wx.navigateTo({
             url: '../special-page/special-page' + str,
             success: (res) => {},
-            fail: (err) => {console.log(err)}
+            fail: (err) => {
+                console.log(err)
+            }
         });
     },
     navToPicture(event) {
@@ -103,7 +111,9 @@ Page({
         wx.navigateTo({
             url: '../picture-page/picture-page' + str,
             success: (res) => {},
-            fail: (err) => {console.log(err)}
+            fail: (err) => {
+                console.log(err)
+            }
         });
     },
     navToArticle(event) {
@@ -111,7 +121,9 @@ Page({
         wx.navigateTo({
             url: '../article-page/article-page' + str,
             success: (res) => {},
-            fail: (err) => {console.log(err)}
+            fail: (err) => {
+                console.log(err)
+            }
         });
     },
     navToVideo(event) {
@@ -119,7 +131,9 @@ Page({
         wx.navigateTo({
             url: '../video-page/video-page?videoUrl=' + str,
             success: (res) => {},
-            fail: (err) => {console.log(err)}
+            fail: (err) => {
+                console.log(err)
+            }
         });
     },
     navToVideo(event) {
@@ -128,16 +142,18 @@ Page({
         wx.navigateTo({
             url: '../video-page/video-page' + str,
             success: (res) => {},
-            fail: (err) => {console.log(err)}
+            fail: (err) => {
+                console.log(err)
+            }
         });
     },
-    
+
     /**
      * [onLoad 载入页面时执行的生命周期初始函数]
      * @return {[type]} [description]
      */
     onLoad() {
-       this.initLoad();
+        this.initLoad();
     },
 
     /**
