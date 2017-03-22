@@ -1,0 +1,25 @@
+.doclive {
+	width: 100%;
+	background-color: #16803b;
+	text-align: center;
+	color: #fff;
+	letter-spacing: 3rpx;
+}
+.doclive .livetitle {
+	margin: 24rpx auto;
+	font-size: 28rpx;
+	
+}
+.doclive .team {
+	padding: 0 40rpx;
+}
+
+.doclive .name {
+	font-size: 32rpx;
+	padding: 0 80rpx;
+	
+}
+.doclive .bottomline {
+	margin: 30rpx;
+	border-bottom: 2rpx solid #fff;
+}

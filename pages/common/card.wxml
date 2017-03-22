@@ -9,6 +9,7 @@
       </view>
       <text wx:if="{{item.commentsall}}" class="comment">{{item.commentsall}}</text>
       <view wx:if="{{item.style.attribute}}" class="zhuanti">{{item.style.attribute}}</view>
+      <view wx:elif="{{item.type == 'sports_live'}}" class="comment" style="color: #de0000;">直播中  . . . </view>
     </view>
   </view>
 </template>

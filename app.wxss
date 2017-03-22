@@ -130,6 +130,78 @@ page {
   height: 332rpx;
 }
 
+.livelist {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.livelist .head {
+  font-size: 28rpx;
+  color: #999;
+  letter-spacing: 2rpx;
+}
+.livelist .head .dotted {
+  color: #de0000;
+  font-size: 40rpx;
+}
+
+.livelist .head .zhibo {
+  
+}
+.livelist .head .tag {
+
+}
+.livetitle {
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+}
+.team {
+  padding-top: 20rpx;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.logo {
+  width:120rpx;
+  height: 80rpx;
+}
+.left .logo {
+  margin-right: 50rpx;
+}
+.right .logo {
+  margin-left: 50rpx;
+  
+}
+.score {
+  font-size: 72rpx;
+}
+.name {
+  font-size: 28rpx;
+  padding: 0 40rpx;
+  
+}
+.name .leftname {
+  float: left;
+}
+.name .rightname {
+  float: right;
+}
+.bottomline {
+  margin: 30rpx;
+  border-bottom: 2rpx solid #fff;
+}
+
+
+
+
+
+.clearfloat::after {
+  content: '';
+  clear: both;
+  display: block;
+}
 
 .tips {
   font-size: 28rpx;

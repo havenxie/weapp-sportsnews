@@ -74,10 +74,23 @@ Page({
             fail: (err) => {console.log(err)}
         });
     },
+    navToDocLive(event) {
+        let str = JSON.stringify(event.currentTarget.dataset.liveext);
+        wx.navigateTo({
+            url: '../doclive-page/doclive-page?option=' + str,
+            success: (res) => {},
+            fail: (err) => {
+                console.log(err)
+            }
+        });
+    },
     moveTo(event) {
         this.setData({
             toTitle: event.currentTarget.dataset.id,
         });
+    },
+    refesh() {
+        this.loadData(this.data.localParams);
     },
     onLoad(params) {
         this.setData({//存储数据留着给刷新用

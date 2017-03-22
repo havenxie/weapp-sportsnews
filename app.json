@@ -5,6 +5,7 @@
     "pages/article-page/article-page",
     "pages/picture-page/picture-page",
     "pages/video-page/video-page",
+    "pages/doclive-page/doclive-page",
     "pages/setting/setting",
     "pages/index/index",
     "pages/logs/logs"

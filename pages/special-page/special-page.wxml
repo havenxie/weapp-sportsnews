@@ -2,11 +2,13 @@
 <import src="../common/article-card.wxml"/>
 <import src="../common/picture-card.wxml"/>
 <import src="../common/video-card.wxml"/>
+<import src="../common/doclive-card.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
 
-<scroll-view  scroll-y="true" class="container" scroll-into-view="{{toTitle}}">
-<!-- <view class="container"> -->
+<view class="container">
+<!-- 使用下拉刷新就会失去锚点跳转功能 -->
+<!-- <scroll-view  scroll-y="true" class="" style="height: 100%;" scroll-into-view="{{toTitle}}"> -->
   <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subjects">
 
   <!-- 最上面的图片 -->
@@ -41,14 +43,17 @@
     <block wx:else>
       <view wx:if="{{subclass.title}}" id="{{subclass.title}}" class="navtitle">{{subclass.title}}</view>
       <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="podItems">
-        <block wx:if="{{item.links[0].type == 'doc'}}">
+        <block wx:if="{{item.links[0].type == 'doc'}}"><!--文章-->
          <template is="article-card" data="{{item}}" />
         </block>
-        <block wx:elif="{{item.links[0].type == 'video'}}">
+        <block wx:elif="{{item.links[0].type == 'video'}}"><!--视屏-->
          <template is="video-card" data="{{item}}" />
         </block>
-        <block wx:elif="{{item.links[0].type == 'slide'}}">
+        <block wx:elif="{{item.links[0].type == 'slide'}}"><!--图片-->
           <template is="picture-card" data="{{item}}"/>
+        </block>
+        <block wx:elif="{{item.type == 'sports_live'}}"><!--文字直播-->
+          <template is="doclive-card" data="{{item}}"/>
         </block>
       </block>
     </block>
@@ -60,6 +65,6 @@
      <view wx:else><text>没有更多内容了</text></view>
  </view>
 
-<!-- </view> -->
-</scroll-view>
+<!-- </scroll-view> -->
+</view>
  

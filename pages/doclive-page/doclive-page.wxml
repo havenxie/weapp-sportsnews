@@ -1,0 +1,9 @@
+<import src="../common/doclive-card.wxml"/>
+
+
+<loading hidden="{{!loading}}">加载中...</loading>
+<view class="doclive">
+	<view class="livetitle">[{{item.sportsLiveExt.tag}}]</view>
+		<template is="score" data="{{item}}"></template>
+	<view class="bottomline"></view>
+</view>

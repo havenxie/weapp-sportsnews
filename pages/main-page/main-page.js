@@ -99,7 +99,7 @@ Page({
     navToSpecial(event) {
         let str = dealUrl.getUrlTypeId(event);
         wx.navigateTo({
-            url: '../special-page/special-page' + str,
+            url: '../special-page/special-page' + str ,
             success: (res) => {},
             fail: (err) => {
                 console.log(err)
@@ -147,7 +147,16 @@ Page({
             }
         });
     },
-
+    navToDocLive(event) {
+        let str = JSON.stringify(event.currentTarget.dataset.liveext);
+        wx.navigateTo({
+            url: '../doclive-page/doclive-page?option=' + str,
+            success: (res) => {},
+            fail: (err) => {
+                console.log(err)
+            }
+        });
+    },
     /**
      * [onLoad 载入页面时执行的生命周期初始函数]
      * @return {[type]} [description]

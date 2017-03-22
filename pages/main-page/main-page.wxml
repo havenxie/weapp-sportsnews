@@ -3,6 +3,7 @@
 <import src="../common/picture-card.wxml"/>
 <import src="../common/video-card.wxml"/>
 <import src="../common/topic2-card.wxml"/>
+<import src="../common/doclive-card.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
 
@@ -18,7 +19,7 @@
 <!-- 专题栏导航部分 -->
 <view class="special">
   <block wx:for="{{special.item}}" wx:key="special">
-    <view class="navitem" bindtap='navToSpecial' data-id="{{item.id}}">
+    <view class="navitem" bindtap='navToSpecial' data-id="{{item.title == '直播' ? (item.id + '&gv=5.5.3') : item.id}}"><!--直播那个非要有gv=5.5.3也是醉了-->
         <image src="{{item.thumbnail}}" class="navimg" mode="aspectFill"/>
         <text class="title">{{item.title}}</text>     
     </view>
@@ -37,6 +38,9 @@
     <block wx:elif="{{item.type == 'topic2'}}"><!--中超专题-->
       <template is="topic2-card" data="{{item}}" />
     </block>
+    <block wx:elif="{{item.type == 'sports_live'}}">
+      <template is="doclive-card" data="{{item}}"/>
+    </block> 
   </block>
 </view>
 
