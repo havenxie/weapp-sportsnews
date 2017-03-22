@@ -1,10 +1,11 @@
 const API_URL = 'https://api.iclient.ifeng.com';
+const API_LIVE = 'http://sports.live.ifeng.com/API';
 const Promise = require('./bluebird')
 
-function fetchApi (type, params) {
+function fetchApi (type, params, flag) {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `${API_URL}/${type}`,
+      url: `${flag == true ? API_LIVE : API_URL}/${type}`,
       data: Object.assign({}, params),
       header: { 'Content-Type': 'json' },
       success: resolve,
@@ -16,9 +17,13 @@ function fetchApi (type, params) {
 module.exports = {
   API_URL: API_URL,
   find(type, params) {
-    return fetchApi(type, params)
+    return fetchApi(type, params, null)
       .then(res => res.data)
   }, 
+  findLive(type, params) {
+    return fetchApi(type, params, true)
+      .then(res => res.data)
+  },
   findOne (id) {
     return fetchApi('subject/' + id)
       .then(res => res.data)

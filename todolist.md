@@ -1,6 +1,7 @@
 ### API地址：
 - 入口地址：https://api.iclient.ifeng.com/ClientNews?id=TY43,FOCUSTY43,TYTOPIC&page=1
-
+- 直播页聊天API：http://sports.live.ifeng.com/API/ChatAPI.php?matchid=5261&type=new&chatid=1806366
+- 直播页直播API：http://sports.live.ifeng.com/API/LiveAPI.php?matchid=5261
 - 子地址：
     + ClientNews 
     + 自己去分析 

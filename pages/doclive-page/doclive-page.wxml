@@ -3,7 +3,23 @@
 
 <loading hidden="{{!loading}}">加载中...</loading>
 <view class="doclive">
-	<view class="livetitle">[{{item.sportsLiveExt.tag}}]</view>
-		<template is="score" data="{{item}}"></template>
-	<view class="bottomline"></view>
+	<view class="livehead">
+		<view class="livetitle">[{{item.sportsLiveExt.tag}}]</view>
+			<template is="score" data="{{item}}"></template>
+		<view class="bottomline"></view>
+	</view>
+	<view class="livenav">
+		<text class="active">直播</text><text>聊天</text><text>新闻</text>
+	</view>
+	<view wx:for="{{lives}}" wx:key="lives" class="livelist">
+		<view class="item clearfloat">
+			<view class="itemleft">
+				<image class="logo" src="{{item.liverimg}}">
+					
+				</image>
+				<view class="nickname">{{item.livername}}</view>
+			</view>
+			<view class="itemright">{{item.content}}</view>
+		</view>
+	</view>
 </view>

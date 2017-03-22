@@ -1,25 +1,85 @@
 .doclive {
 	width: 100%;
-	background-color: #16803b;
-	text-align: center;
-	color: #fff;
 	letter-spacing: 3rpx;
 }
-.doclive .livetitle {
-	margin: 24rpx auto;
-	font-size: 28rpx;
-	
+.livehead {
+	color: #fff;
+	width: 100%;
+	background-color: #16803b;
+	text-align: center;
+	border: 1rpx solid #16803b;/*没有border的话里面的元素就不能对它使用margin*/
 }
-.doclive .team {
+.livehead .livetitle {
+	padding: 24rpx 0;
+	font-size: 28rpx;
+	width: 25%;
+	margin: 0 auto;
+}
+.livehead .team {
 	padding: 0 40rpx;
 }
 
-.doclive .name {
+.livehead .name {
 	font-size: 32rpx;
 	padding: 0 80rpx;
 	
 }
-.doclive .bottomline {
+.livehead .bottomline {
 	margin: 30rpx;
 	border-bottom: 2rpx solid #fff;
+}
+.livenav {
+	border-bottom: 2rpx solid #ccc;
+}
+.livenav text {
+	display: inline-block;
+	padding: 0 30rpx;
+	font-size: 36rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+}
+.livenav .active {
+	border-bottom: 4rpx solid #de0000;
+}
+.livelist {
+	padding: 0 30rpx 30rpx 60rpx;
+	background-color: #eeeeee;
+}
+.livelist .item {
+
+}
+.livelist .item .itemleft {
+	float: left;
+	width: 120rpx;
+}
+.livelist .item .itemleft .logo {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+.livelist .item .itemleft .nickname {
+	font-size: 28rpx;
+	padding-left: 10rpx;
+}
+.livelist .item .itemright {
+	margin-left: 130rpx;
+	padding: 20rpx 40rpx 20rpx 20rpx;
+	border-radius: 6rpx;
+	position: relative;
+	background-color: #fff;
+	font-size: 36rpx;
+	line-height: 140%;
+}
+.livelist .item .itemright::after {
+	content: '';
+	width: 0;
+	height: 0;
+	border-width: 16rpx;
+	border-color: #eeeeee;
+	border-style: solid;
+	border-right-color: #fff;
+	background-color: #000;
+	position: absolute;
+	left: -28rpx;
+	top: 28rpx;
 }
