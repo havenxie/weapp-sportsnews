@@ -17,25 +17,5 @@
     "navigationBarTextStyle":"#fff",
     "backgroundColor": "#fff",
     "enablePullDownRefresh": true
-  },
-  "tabBar": {
-    "color": "#000000",
-    "selectorColor": "#de0000",
-    "borderStyle": "white",
-    "backgroundColor": "f9f9f9",
-    "list": [
-      {
-        "text": "推荐",
-        "pagePath": "pages/main-page/main-page",
-        "iconPath": "images/recommend.png",
-        "selectedIconPath": "images/recommend-actived.png"
-      },
-      {
-        "text": "设置",
-        "pagePath": "pages/setting/setting",
-        "iconPath": "images/setting.png",
-        "selectedIconPath": "images/setting-actived.png"
-      }
-    ]
   }
 }
