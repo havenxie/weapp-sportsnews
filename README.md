@@ -11,9 +11,7 @@
 1. 将仓库克隆到本地：
 
     ```bash
-    $ git clone https://github.com/havenx<button class="button button-assertive">
-      button-assertive
-    </button>ie/weapp-sportsnews.git weapp-sportsnews --depth 1
+    $ git clone https://github.com/havenxie/weapp-sportsnews.git weapp-sportsnews --depth 1
 
     $ cd weapp-sportsnews
     ```
