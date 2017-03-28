@@ -95,8 +95,9 @@ page {
   float: right;
   margin-right: 30rpx;
   margin-top: -2rpx;
-  padding: 0 10rpx;
-  font-size: 28rpx;
+  padding: 0 8rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
   color: #de0000;
   border: 1rpx solid #de0000;
   border-radius: 6rpx;

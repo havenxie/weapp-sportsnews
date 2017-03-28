@@ -136,17 +136,6 @@ Page({
             }
         });
     },
-    navToVideo(event) {
-        // let str = dealUrl.getUrlTypeId(event);
-        console.log(event.currentTarget.dataset.id);
-        wx.navigateTo({
-            url: '../video-page/video-page' + str,
-            success: (res) => {},
-            fail: (err) => {
-                console.log(err)
-            }
-        });
-    },
     navToDocLive(event) {
         let str = JSON.stringify(event.currentTarget.dataset.liveext);
         wx.navigateTo({

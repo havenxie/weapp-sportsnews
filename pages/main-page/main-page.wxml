@@ -35,7 +35,7 @@
     <block wx:elif="{{item.type == 'slide'}}"><!--图片-->
       <template is="picture-card" data="{{item}}" />
     </block>
-    <block wx:elif="{{item.type == 'topic2'}}"><!--中超专题-->
+    <block wx:elif="{{item.type == 'topic2'}}"><!--专题-->
       <template is="topic2-card" data="{{item}}" />
     </block>
     <block wx:elif="{{item.type == 'sports_live'}}">

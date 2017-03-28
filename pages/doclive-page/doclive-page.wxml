@@ -29,7 +29,7 @@
 		<text bindtap="toggleTab" class="{{current == 1 ? 'active' : ''}}" data-id="1">聊天</text>
 		<text bindtap="toggleTab" class="{{current == 2 ? 'active' : ''}}" data-id="2">新闻</text>
 	</view>
-	<swiper current="{{current}}" class="swiper-box" duration="300" bindchange="slideSwiper" style="height: {{winHeight - 150}}px">
+	<swiper current="{{current}}" class="swiper-box" duration="300" bindchange="slideSwiper" style="height: {{winHeight}}px">
 		<swiper-item class="swiper-item"><!--直播页-->
 			<view wx:for="{{lives}}" wx:key="chats" class="livelist">
 				<template is="live-chat" data="{{item}}" />
