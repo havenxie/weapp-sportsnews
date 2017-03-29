@@ -3,12 +3,14 @@
 <import src="../common/picture-card.wxml"/>
 <import src="../common/video-card.wxml"/>
 <import src="../common/doclive-card.wxml"/>
+<import src="../common/totop.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
+<template is="toTop" data="{{showGoTop}}" />
 
-<view class="container">
+<!--<view class="container">-->
 <!-- 使用下拉刷新就会失去锚点跳转功能 -->
-<!-- <scroll-view  scroll-y="true" class="" style="height: 100%;" scroll-into-view="{{toTitle}}"> -->
+ <scroll-view  scroll-y="true" class="container" style="height: 100%;" scroll-into-view="{{toTitle}}" scroll-top="{{scrollTop}}" enable-back-to-top="true" bindscroll="bindScroll"> 
   <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subjects">
 
   <!-- 最上面的图片 -->
@@ -65,6 +67,6 @@
      <view wx:else><text>没有更多内容了</text></view>
  </view>
 
-<!-- </scroll-view> -->
-</view>
+ </scroll-view> 
+<!--</view>-->
  

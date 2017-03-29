@@ -9,6 +9,8 @@ Page({
         hasMore: true,
         navTitle: [],
         toTitle: '',
+        showGoTop: false,
+        scrollTop: 0,
         localParams: {}
     },
 
@@ -84,13 +86,29 @@ Page({
             }
         });
     },
-    moveTo(event) {
+    moveTo(event) {//导航标签快速定位
         this.setData({
             toTitle: event.currentTarget.dataset.id,
         });
     },
     refesh() {
         this.loadData(this.data.localParams);
+    },
+    toTop(event) {//点击返回顶部
+        this.setData({
+            scrollTop: 0,
+        });
+    },
+    bindScroll(event) {//页面滚动时候触发
+        if(event.detail.scrollTop > 300) {
+            this.setData({
+                showGoTop: true,
+            });
+        } else {
+            this.setData({
+                showGoTop: false,
+            });            
+        }
     },
     onLoad(params) {
         this.setData({//存储数据留着给刷新用

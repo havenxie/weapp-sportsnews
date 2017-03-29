@@ -1,7 +1,7 @@
 <import src="card.wxml"/>
 
 <template name="video-card">
-  <view bindtap="navToVideo" data-id="{{item.id ? item.id : item.links[0].url}}" class="newitem">
+  <view bindtap="navToVideo" data-id="{{item.id ? item.id : item.links[0].url}}" class="newitem videoitem">
     <template is="card" data="{{item}}"/>  
   </view>
 </template>

@@ -8,17 +8,30 @@ Page({
         news: {},
         loading: true,
         hasMore: true,
-        subtitle: ''
+        subtitle: '',
+        scrollTop: 0,
+        showGoTop: false
+    },
+    showLoading() {
+        wx.showNavigationBarLoading();
+        this.setData({
+            subtitle: '加载中...',
+            loading: true
+        });
+    },
+    hideLoading() {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        this.setData({
+            loading: false
+        });
     },
     /**
      * [initLoad 初始化加载数据]
      * @return {[type]} [description]
      */
     initLoad() {
-        this.setData({
-            subtitle: '加载中...',
-            loading: true
-        })
+        this.showLoading();
         newsdata.find('ClientNews', {
                 id: 'TY43,FOCUSTY43,TYTOPIC',
                 page: 1
@@ -32,28 +45,27 @@ Page({
                     if (typeData == 'focus') { //首页轮播图
                         this.setData({
                             swiper: obj,
-                            loading: false
                         });
                     } else if (typeData == 'tytopic') { //首页专题导航
                         this.setData({
                             special: obj,
-                            loading: false
                         });
                     } else if (typeData == 'list') { //首页新闻列表
                         this.setData({
                             news: obj,
-                            loading: false
                         });
                     }
+                    this.hideLoading();
                 })
             })
             .catch(e => {
                 console.error(e)
                 this.setData({
                     movies: [],
-                    loading: false
                 })
+                this.hideLoading();
             })
+            
     },
 
     /**
@@ -61,19 +73,14 @@ Page({
      * @return {[type]} [description]
      */
     loadMore() {
+        this.showLoading();
         let currentPage = this.data.news.currentPage;
         if (currentPage >= this.data.news.totalPage) {
             this.setData({
                 hasMore: false,
-                loading: false
             });
             return;
         }
-        this.setData({
-            subtitle: '加载中...',
-            loading: true
-        })
-
         newsdata.find('ClientNews', {
                 id: 'TY43',
                 page: ++currentPage
@@ -85,16 +92,17 @@ Page({
                 newnews.item = olditem.concat(newnews.item);
                 this.setData({
                     news: newnews,
-                    loading: false
                 });
+                this.hideLoading();
             })
             .catch(e => {
                 this.setData({
                     subtitle: '获取数据异常',
-                    loading: false
                 })
-                console.error(e)
+                console.error(e);
+                this.hideLoading();
             })
+           
     },
     navToSpecial(event) {
         let str = dealUrl.getUrlTypeId(event);
@@ -146,6 +154,20 @@ Page({
             }
         });
     },
+    toTop() {
+        console.log(111)
+    },
+    bindScroll(event) {//页面滚动时候触发
+        if(event.detail.scrollTop > 300) {
+            this.setData({
+                showGoTop: true,
+            });
+        } else {
+            this.setData({
+                showGoTop: false,
+            });            
+        }
+    },
     /**
      * [onLoad 载入页面时执行的生命周期初始函数]
      * @return {[type]} [description]
@@ -160,7 +182,6 @@ Page({
      */
     onPullDownRefresh() {
         this.initLoad();
-        wx.stopPullDownRefresh();
     },
 
     /**

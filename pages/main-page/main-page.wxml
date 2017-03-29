@@ -4,12 +4,14 @@
 <import src="../common/video-card.wxml"/>
 <import src="../common/topic2-card.wxml"/>
 <import src="../common/doclive-card.wxml"/>
+<import src="../common/totop.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
+<template is="toTop"  data="{{showGoTop}}"/>
 
-<view class="container" scroll-top="{{scrollTop}}">
+<view class="container" >
 
-<!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadMore"  scroll-top="{{scrollTop}}"> -->
+<!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadMore"  scroll-top="{{scrollTop}}">  bindscroll="bindScroll"-->
 
 <!-- 轮播图部分 -->
 <view class="head">

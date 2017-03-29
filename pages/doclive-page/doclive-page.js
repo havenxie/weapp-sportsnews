@@ -113,6 +113,7 @@ Page({
 		let that = this; //获取设备信息
 		wx.getSystemInfo({
 			success: function(res) {
+				console.log(res)
 				that.setData({
 					winWidth: res.windowWidth,
 					winHeight: res.windowHeight - 150
