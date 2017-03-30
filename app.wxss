@@ -50,14 +50,15 @@ page {
 
 .newitem .meta {
   flex: 1;
+  height: 140rpx;
 
 }
 
 .newitem .meta .title{
   display: block;
   font-size: 36rpx;
-  letter-spacing: 3rpx;
-
+  letter-spacing: 2rpx;
+  line-height: 1.3;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -67,8 +68,7 @@ page {
 
 .newitem .meta .other {
   color: #999;
-  margin-top: 24rpx;
-
+  margin-top: 16rpx;
 }
 .newitem .meta .other .source {
   float: left;
