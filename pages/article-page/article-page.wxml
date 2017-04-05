@@ -12,7 +12,7 @@
                     <text>{{body.editTime}}</text>
                 </view>
             </view> 
-            <view class="take">订阅</view>
+            <view class="take" bindtap="dingyue">订阅</view>
         </view>
 
         <view class="content">

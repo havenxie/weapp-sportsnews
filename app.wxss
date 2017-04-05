@@ -255,7 +255,7 @@ page {
   border-radius: 40rpx;
   position: fixed;
   right: 40rpx;
-  bottom: 120rpx;
+  bottom: 180rpx;
   background-color: #000;
   opacity: .6;
   font-size: 60rpx;

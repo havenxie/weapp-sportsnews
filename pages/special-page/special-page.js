@@ -11,6 +11,7 @@ Page({
         toTitle: '',
         showGoTop: false,
         scrollTop: 0,
+        winHeight: 0,
         localParams: {}
     },
 
@@ -87,6 +88,7 @@ Page({
         });
     },
     moveTo(event) {//导航标签快速定位
+        console.log(event.currentTarget.dataset.id)
         this.setData({
             toTitle: event.currentTarget.dataset.id,
         });
@@ -111,6 +113,14 @@ Page({
         }
     },
     onLoad(params) {
+        // let that = this; //获取设备信息
+        // wx.getSystemInfo({
+        //     success: function(res) {
+        //         that.setData({
+        //             winHeight: res.windowHeight
+        //         });
+        //     }
+        // });
         this.setData({//存储数据留着给刷新用
             localParams: params,
         });

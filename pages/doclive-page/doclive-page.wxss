@@ -13,7 +13,7 @@
 .livehead .livetitle {
 	padding: 24rpx 0;
 	font-size: 28rpx;
-	width: 25%;
+	width: 50%;
 	margin: 0 auto;
 }
 .livehead .team {

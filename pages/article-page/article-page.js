@@ -30,6 +30,14 @@ Page({
 				console.log(err);
 			})
 	},
+	dingyue() {
+		wx.showModal({
+			title: '提示',
+			content: '点击也没用，这个功能根本就没做',
+			success: () => {},
+			fail: () => {}
+		});
+	},
 	 /**
      * [onPullDownRefresh 下拉页面不做处理]
      * @return {[type]} [description]
