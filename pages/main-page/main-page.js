@@ -10,7 +10,8 @@ Page({
         hasMore: true,
         subtitle: '',
         scrollTop: 0,
-        showGoTop: false
+        showGoTop: false,
+        showSearch: true,
     },
     showLoading() {
         wx.showNavigationBarLoading();
@@ -157,16 +158,20 @@ Page({
     toTop() {
         console.log(111)
     },
-    bindScroll(event) {//页面滚动时候触发
-        if(event.detail.scrollTop > 300) {
-            this.setData({
-                showGoTop: true,
-            });
-        } else {
-            this.setData({
-                showGoTop: false,
-            });            
-        }
+    searchBtn() {
+        this.setData({
+            showSearch: false,
+        });    
+    },
+    ensureBtn() {
+        this.setData({
+            showSearch: true,
+        }); 
+    },
+    scroll(event) {
+        this.setData({
+            showSearch: true,
+        }); 
     },
     /**
      * [onLoad 载入页面时执行的生命周期初始函数]

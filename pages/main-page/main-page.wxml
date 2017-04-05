@@ -9,7 +9,7 @@
 <loading hidden="{{!loading}}">加载中...</loading>
 <template is="toTop"  data="{{showGoTop}}"/>
 
-<view class="container" >
+<view class="" bindtouchmove="scroll">
 
 <!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadMore"  scroll-top="{{scrollTop}}">  bindscroll="bindScroll"-->
 
@@ -18,6 +18,14 @@
   <template is="swiper" data="{{swiper}}"></template>
 </view>
 
+<!-- 搜索框部分 -->
+<view class="{{showSearch == true? 'search' : 'search height'}}">
+  <input type="text" placeholder="请输入关键字" focus="true" confirm-type="search" class="searcharea" wx:if="{{showSearch != true}}"/>
+  <view class="searchbtn" wx:if="{{showSearch != true}}" bindtap="ensureBtn">确定
+  </view>
+  <icon  type="search" class="search-icon" size="30" bindtap="searchBtn" wx:if="{{showSearch == true}}"/>
+  
+</view>
 <!-- 专题栏导航部分 -->
 <view class="special">
   <block wx:for="{{special.item}}" wx:key="special">
