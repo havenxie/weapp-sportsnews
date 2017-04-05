@@ -12,12 +12,13 @@ Page({
         scrollTop: 0,
         showGoTop: false,
         showSearch: true,
+        inputValue: '',
     },
     showLoading() {
         wx.showNavigationBarLoading();
         this.setData({
             subtitle: '加载中...',
-            loading: true
+            loading: true,
         });
     },
     hideLoading() {
@@ -158,15 +159,31 @@ Page({
     toTop() {
         console.log(111)
     },
-    searchBtn() {
+    searchIcon() {
         this.setData({
             showSearch: false,
+            inputValue: '',
         });    
     },
-    ensureBtn() {
+    bindKeyInput: function(event) {//获取输入的数据
         this.setData({
-            showSearch: true,
-        }); 
+          inputValue: event.detail.value
+        })
+    },
+    bindSearch() {//输入框点击完成事件
+        let searchValue = this.data.inputValue;
+        if(searchValue != '') {
+            console.log(this.data.inputValue)
+        }
+        wx.showModal({
+            title: '提示',
+            content: `你输入的数据：${this.data.inputValue != '' ? this.data.inputValue : '是空的'} ,但是没用，我没做这个功能。`,
+            success: () => {},
+            fail: () => {}
+        });
+    },
+    ensureBtn(event) {//确定按钮事件
+        this.bindSearch();
     },
     scroll(event) {
         this.setData({

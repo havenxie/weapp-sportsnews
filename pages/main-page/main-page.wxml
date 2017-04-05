@@ -20,10 +20,9 @@
 
 <!-- 搜索框部分 -->
 <view class="{{showSearch == true? 'search' : 'search height'}}">
-  <input type="text" placeholder="请输入关键字" focus="true" confirm-type="search" class="searcharea" wx:if="{{showSearch != true}}"/>
-  <view class="searchbtn" wx:if="{{showSearch != true}}" bindtap="ensureBtn">确定
-  </view>
-  <icon  type="search" class="search-icon" size="30" bindtap="searchBtn" wx:if="{{showSearch == true}}"/>
+  <input type="text" placeholder="请输入关键字" focus="true" confirm-type="search" bindconfirm="bindSearch" bindinput="bindKeyInput" class="searcharea" wx:if="{{showSearch != true}}"/>
+  <view class="searchbtn" wx:if="{{showSearch != true}}" bindtap="ensureBtn">确定</view>
+  <icon  type="search" class="search-icon" size="26" bindtap="searchIcon" color="#de0000" wx:if="{{showSearch == true}}"/>
   
 </view>
 <!-- 专题栏导航部分 -->
