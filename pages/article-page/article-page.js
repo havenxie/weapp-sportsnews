@@ -10,7 +10,7 @@ Page({
 	},
 
 	onLoad(option) {
-		 let params = option;
+		let params = option;
         let urlType = params.urlType;
         delete params.urlType; //返回的是一个bool值
 		newsdata.find(urlType, params)

@@ -1,5 +1,6 @@
 const newsdata = require('../../libraries/newsdata.js');
 const dealUrl = require('../../libraries/dealUrl.js');
+const app = getApp();
 Page({
     data: {
     	content: {},//存放说明、分享链接等信息
@@ -16,6 +17,13 @@ Page({
     },
 
     loadData(option) {
+        if(app.getNetworkType() == 'none') {
+            this.setData({
+                loading: false
+            })
+            return false;
+        }
+
         let params = {};
         let urlType = option.urlType;
         for(let index in option) {

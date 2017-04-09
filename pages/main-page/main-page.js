@@ -1,6 +1,6 @@
 const newsdata = require('../../libraries/newsdata.js');
 const dealUrl = require('../../libraries/dealUrl.js');
-
+const app = getApp();
 Page({
     data: {
         swiper: {},
@@ -33,6 +33,10 @@ Page({
      * @return {[type]} [description]
      */
     initLoad() {
+        if(app.getNetworkType() == 'none') {
+            this.hideLoading();
+            return false;
+        }
         this.showLoading();
         newsdata.find('ClientNews', {
                 id: 'TY43,FOCUSTY43,TYTOPIC',
@@ -75,6 +79,10 @@ Page({
      * @return {[type]} [description]
      */
     loadMore() {
+        if(app.getNetworkType() == 'none') {
+            this.hideLoading();
+            return false;
+        }
         this.showLoading();
         let currentPage = this.data.news.currentPage;
         if (currentPage >= this.data.news.totalPage) {

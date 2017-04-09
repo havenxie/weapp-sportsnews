@@ -7,7 +7,7 @@
         <view wx:if="{{body.subscribe}}" class="subscribe">
             <image wx:if="{{body.subscribe.logo}}" class="logo" src="{{body.subscribe.logo}}" />
             <view class="info">
-                <text wx:if="{{body.subscribe.catename}}" class="catename">{{body.subscribe.catename}}</text> | <text wx:if="{{body.subscribe.cateSource}}" class="cateSource">{{body.subscribe.cateSource}}</text>
+                <text wx:if="{{body.subscribe.catename}}" class="catename">{{body.subscribe.catename}}</text><!--  | <text wx:if="{{body.subscribe.cateSource}}" class="cateSource">{{body.subscribe.cateSource}}</text> -->
                 <view class="time">
                     <text>{{body.editTime}}</text>
                 </view>
