@@ -17,12 +17,12 @@ Page({
     },
 
     loadData(option) {
-        if(app.getNetworkType() == 'none') {
-            this.setData({
-                loading: false
-            })
-            return false;
-        }
+        // if(app.getNetworkType() == 'none') {
+        //     this.setData({
+        //         loading: false
+        //     })
+        //     return false;
+        // }
 
         let params = {};
         let urlType = option.urlType;

@@ -11,7 +11,6 @@ App({
         //     console.log(userInfo);
         // });
         // 
-        this.getNetworkType();//首次获取网略状态
         this.bindNetworkChange();//监听网络变化事件
     },
     getUserInfo: function(cb) {
