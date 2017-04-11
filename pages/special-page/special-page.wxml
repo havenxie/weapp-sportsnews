@@ -10,7 +10,7 @@
 
 <view class="container">
 <!-- 使用下拉刷新就会失去锚点跳转功能 -->
- <scroll-view  scroll-y="true" class="" style="height: 100%" scroll-into-view="{{'tag' + toTitle}}" scroll-top="{{scrollTop}}" enable-back-to-top="true" bindscroll="bindScroll"> 
+ <scroll-view  scroll-y="true" class="" style="height: 100%" scroll-into-view="{{'tag' + toTitle}}" scroll-top="{{scrollTop}}" enable-back-to-top="true" scroll-with-animation="true" bindscroll="bindScroll"> 
   <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subjects">
 
   <!-- 最上面的图片 -->

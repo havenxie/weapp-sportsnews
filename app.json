@@ -10,7 +10,7 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#de0000",
     "navigationBarTitleText": "Sports News",
     "navigationBarTextStyle":"#fff",
