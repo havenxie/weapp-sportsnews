@@ -41,8 +41,13 @@
 
 10. 下载后将images中的GIF5.jpg删除。
 
- 
-## 至此告一段落，啥时候再有兴趣再来继续添加功能吧。 
 
+### 有什么不明白或者想找我交流的朋友可以和我联系
 
+| 个人微信 | 个人公众号 |
+|:----:|:----:|
+| <img src="images/wechat.jpg" style="width: 300px; height: 300px;" alt="微信二维码"> | <img src="images/dingyue.jpg" style="width: 300px; height: 300px;" alt="微信公众号"> |
 
+### 至此告一段落，啥时候再有兴趣再来继续添加功能吧。
+
+### 有兴趣的小伙伴可以一起来提交代码。。。
