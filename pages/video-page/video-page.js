@@ -10,6 +10,7 @@ Page({
 		});
 	},
 	onLoad(params) {
+        //console.log(params);
 		this.setData({
 			src: params.videoUrl,
 			loading: false,
