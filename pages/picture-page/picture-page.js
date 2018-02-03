@@ -3,8 +3,8 @@ Page({
 	data: {
 		title: '',
 		slides: [],
-    	loading: true,
-    	hiddenInfo: false
+    loading: true,
+    hiddenInfo: false
 	},
 
 	tapSwiper() {

@@ -14,6 +14,7 @@ Page({
         showSearch: true,
         inputValue: '',
     },
+    
     showLoading() {
         wx.showNavigationBarLoading();
         this.setData({
@@ -48,7 +49,7 @@ Page({
                         this.setData({
                             swiper: obj,
                         });
-                    } else if (typeData == 'tytopic') { //首页专题导航
+                    } else if (typeData == 'secondnav') { //首页专题导航
                         this.setData({
                             special: obj,
                         });
@@ -75,6 +76,7 @@ Page({
      * @return {[type]} [description]
      */
     loadMore() {
+      
         this.showLoading();
         let currentPage = this.data.news.currentPage;
         if (currentPage >= this.data.news.totalPage) {
@@ -160,6 +162,7 @@ Page({
         console.log(111)
     },
     searchIcon() {
+        // wx.navigateTo({ url: '../logs/logs' });
         this.setData({
             showSearch: false,
             inputValue: '',

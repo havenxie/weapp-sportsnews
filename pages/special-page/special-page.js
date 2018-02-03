@@ -9,7 +9,7 @@ Page({
         loading: true,
         hasMore: true,
         navTitle: [],
-        toTitle: '#',
+        toTitle: 'to',
         showGoTop: false,
         scrollTop: 0,
         winHeight: 0,

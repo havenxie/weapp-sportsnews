@@ -7,24 +7,34 @@
 <import src="../common/totop.wxml"/>
 
 <loading hidden="{{!loading}}">加载中...</loading>
+<!-- 快速到顶部 -->
 <template is="toTop"  data="{{showGoTop}}"/>
 
-<view class="" bindtouchmove="scroll">
+<!-- 时间栏部分 -->
+<!-- <view wx:if="{{true}}" class="timeNav"></view> -->
+
+ <view class="container" bindtouchmove="scroll"> 
+<!-- html -->
+<!-- <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script> -->
 
 <!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadMore"  scroll-top="{{scrollTop}}">  bindscroll="bindScroll"-->
+
+
 
 <!-- 轮播图部分 -->
 <view class="head">
   <template is="swiper" data="{{swiper}}"></template>
 </view>
 
+
+
 <!-- 搜索框部分 -->
 <view class="{{showSearch == true? 'search' : 'search height'}}">
   <input type="text" placeholder="请输入关键字" focus="true" confirm-type="search" bindconfirm="bindSearch" bindinput="bindKeyInput" class="searcharea" wx:if="{{showSearch != true}}"/>
   <view class="searchbtn" wx:if="{{showSearch != true}}" bindtap="ensureBtn">确定</view>
   <icon  type="search" class="search-icon" size="26" bindtap="searchIcon" color="#de0000" wx:if="{{showSearch == true}}"/>
-  
 </view>
+
 <!-- 专题栏导航部分 -->
 <view class="special">
   <block wx:for="{{special.item}}" wx:key="special">

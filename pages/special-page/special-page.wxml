@@ -8,9 +8,9 @@
 <loading hidden="{{!loading}}">加载中...</loading>
 <template is="toTop" data="{{showGoTop}}" />
 
-<view class="container">
+<view class="container"> 
 <!-- 使用下拉刷新就会失去锚点跳转功能 -->
-  <scroll-view  scroll-y="true" class="" style="height: 100%" scroll-into-view="{{toTitle}}"  enable-back-to-top="true" scroll-with-animation="true" bindscroll="bindScroll">  
+  <scroll-view  scroll-y="true" class="" style="height: 100%" scroll-top="{{scrollTop}}" scroll-into-view="{{toTitle}}"  enable-back-to-top="true" scroll-with-animation="true" bindscroll="bindScroll">  
   <block wx:for="{{subjects}}" wx:for-item="subclass" wx:key="subjects">
 
   <!-- 最上面的图片 -->
@@ -27,12 +27,12 @@
       </view>
     </block>
 
-    <!-- 导航标签 -->
+     <!-- 导航标签 -->
     <view wx:if="{{index == 1}}" class="navTitle">
       <block wx:for="{{navTitle}}" wx:key="navTitle">
-        <text bindtap="moveTo" data-id="{{'#' + item}}"  class="subnav">{{item}}</text>
+        <text bindtap="moveTo" data-id="{{'to' + item}}"  class="subnav">{{item}}</text>
       </block>
-    </view>
+    </view>  
 
     <!-- 轮播图 -->
     <block wx:if="{{subclass.view == 'slider'}}">
@@ -43,19 +43,19 @@
 
     <!-- 其他部分 -->
     <block wx:else>
-      <view wx:if="{{subclass.title}}" id="{{'#' + subclass.title}}" class="navtitle">{{subclass.title}}</view><!--id不能以中文和字母开头-->
+      <view wx:if="{{subclass.title}}" id="{{'to' + subclass.title}}" class="navtitle">{{subclass.title}}</view>
       <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="podItems">
         <block wx:if="{{item.links[0].type == 'doc'}}"><!--文章-->
-         <template is="article-card" data="{{item}}" />
+          <template is="article-card" data="{{item}}" /> 
         </block>
         <block wx:elif="{{item.links[0].type == 'video'}}"><!--视屏-->
-         <template is="video-card" data="{{item}}" />
+          <template is="video-card" data="{{item}}" /> 
         </block>
         <block wx:elif="{{item.links[0].type == 'slide'}}"><!--图片-->
-          <template is="picture-card" data="{{item}}"/>
+           <template is="picture-card" data="{{item}}"/> 
         </block>
         <block wx:elif="{{item.type == 'sports_live'}}"><!--文字直播-->
-          <template is="doclive-card" data="{{item}}"/>
+           <template is="doclive-card" data="{{item}}"/> 
         </block>
       </block>
     </block>
@@ -68,5 +68,5 @@
  </view>
 
  </scroll-view> 
-</view>
+ </view> 
  

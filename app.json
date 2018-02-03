@@ -10,11 +10,13 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#de0000",
     "navigationBarTitleText": "Sports News",
-    "navigationBarTextStyle":"#fff",
+    "navigationStyle": "default",
+    "navigationBarTextStyle":"#000",
     "backgroundColor": "#fff",
+    "backgroundTextStyle": "durk",
     "enablePullDownRefresh": true
+    
   }
 }
