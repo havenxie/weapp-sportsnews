@@ -1,6 +1,5 @@
 # 微信小程序 Sports News(体育新闻) 持续更新
 
-[被收录在OpenDigg开源项目库地址](http://www.opendigg.com/p/weapp-sportsnews)
 
 ## 小程序预览
 
