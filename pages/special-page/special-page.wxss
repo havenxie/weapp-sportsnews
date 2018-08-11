@@ -19,8 +19,8 @@
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
 }
 .navTitle .subnav {
 	color: #de0000;
@@ -31,7 +31,7 @@
 
 }
 .slider {
-	padding: 30rpx;
+	/* padding: 10rpx; */
 }
 
 .navtitle {

@@ -44,6 +44,7 @@ Page({
                     tempTitle.push(item.title);
                 }
             });
+
             this.setData({
                 content: d.body.content,
                 subjects: d.body.subjects,

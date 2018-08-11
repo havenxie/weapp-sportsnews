@@ -36,31 +36,40 @@ page {
 
 
 
+/* =============================================================================== */
+.news {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx;
+}
+
 .newitem {
   display: flex;
-  border-bottom: 1rpx solid #f4f4f4;
-  padding: 30rpx;
-  cursor: pointer;
+  flex-direction: row;
+  border-bottom: 4rpx solid #f4f4f4;
+  padding: 6rpx 0;
   position: relative;
 }
 
 .newitem .poster {
-  width: 200rpx;
-  height: 140rpx;
+  width: 280rpx;
+  height: 200rpx;
   margin-right: 30rpx;
 }
 
 .newitem .meta {
   flex: 1;
-  height: 140rpx;
-
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .newitem .meta .title{
-  display: block;
-  font-size: 36rpx;
+  margin-top: 10rpx;
+  font-size: 38rpx;
   letter-spacing: 2rpx;
-  line-height: 1.3;
+  line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -69,11 +78,14 @@ page {
 }
 
 .newitem .meta .other {
+  display: flex;
+  flex-direction: row-reverse;
   color: #999;
-  margin-top: 16rpx;
+  position: relative;
 }
 .newitem .meta .other .source {
-  float: left;
+  position: absolute;
+  left: 10rpx;
   font-size: 20rpx;
 }
 .newitem .meta .other .source .logo {
@@ -85,27 +97,23 @@ page {
 .newitem .meta .other .source .detail {
   margin-right: 18rpx;
 }
-.newitem .meta .other .source .updateTime {
 
-}
 .newitem .meta .other .comment {
-  float: right;
   margin-right: 30rpx;
   font-size: 24rpx;
-  display: inline-block;
 }
 .newitem .meta .other .zhuanti {
-  float: right;
   margin-right: 30rpx;
-  margin-top: -2rpx;
-  padding: 0 8rpx;
+  padding: 0 6rpx;
   font-size: 24rpx;
   line-height: 30rpx;
   color: #de0000;
   border: 1rpx solid #de0000;
-  border-radius: 6rpx;
-  display: inline-block;
+  border-radius: 8rpx;
 }
+
+/* =============================================================================== */ 
+
 .videoitem::after, .videoitem::before {
   content:'';
   display:block;
@@ -133,11 +141,11 @@ page {
   z-index: 1003;
 }
 
+/* =============================================================================== */
 
 .picture {
-  padding: 10rpx 30rpx;
-  padding-bottom: 40rpx;
-  border-bottom: 1rpx solid #f4f4f4;
+  padding: 10rpx;
+  border-bottom: 4rpx solid #f4f4f4;
 }
 .picture .imgtitle {
   font-size: 36rpx;
@@ -151,14 +159,16 @@ page {
   -webkit-justify-content: space-between;
 }
 .picture .imgs .img {
-  flex: 0 0 226rpx;
-  height: 150rpx;
+  flex-shrink: 1;
+  /* 这里需要重新设置一下 */
+  height: 180rpx;
 }
 .picture .bigimg {
   width: 100%;
   height: 332rpx;
 }
 
+/* =============================================================================== */
 .livelist {
   padding: 30rpx;
   border-bottom: 1rpx solid #f4f4f4;

@@ -28,10 +28,6 @@
   font-size: 32rpx;
 }
 
-.news {
-  padding-top: 20rpx;
-  border-top: 2rpx solid #f4f4f4;
-}
 
 .search {
   width: 100%;
