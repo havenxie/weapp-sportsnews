@@ -17,7 +17,6 @@ Page({
 		let params = option;
         let urlType = params.urlType;
         delete params.urlType; //返回的是一个bool值
-
 		newsdata.find(urlType, params)
 			.then((res) => {
 				if(res.meta && (res.meta.type == 'slides')) {

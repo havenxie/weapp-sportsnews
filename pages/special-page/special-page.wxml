@@ -30,7 +30,7 @@
      <!-- 导航标签 -->
     <view wx:if="{{index == 1}}" class="navTitle">
       <block wx:for="{{navTitle}}" wx:key="navTitle">
-        <text bindtap="moveTo" data-id="{{'to' + item}}"  class="subnav">{{item}}</text>
+        <text bindtap="moveTo" data-id="{{item}}"  class="subnav">{{item}}</text>
       </block>
     </view>  
 
@@ -44,7 +44,7 @@
     <!-- 其他部分 -->
     <block wx:else >
     <view class="news">
-      <view wx:if="{{subclass.title}}" id="{{'to' + subclass.title}}" class="navtitle">{{subclass.title}}</view>
+      <view wx:if="{{subclass.title}}" id="{{subclass.title}}" class="navtitle">{{subclass.title}}</view>
       <block wx:for="{{subclass.podItems}}" wx:for-index="index" wx:key="podItems">
         <block wx:if="{{item.link.type == 'doc'}}"><!--文章-->
           <template is="article-card" data="{{item}}" /> 

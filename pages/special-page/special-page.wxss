@@ -15,7 +15,7 @@
 }
 
 .navTitle {
-	padding: 0 30rpx;
+	padding: 20rpx 30rpx;
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;

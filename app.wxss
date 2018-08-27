@@ -46,8 +46,8 @@ page {
 .newitem {
   display: flex;
   flex-direction: row;
-  border-bottom: 4rpx solid #f4f4f4;
-  padding: 6rpx 0;
+  border-bottom: 2rpx solid #f4f4f4;
+  padding: 10rpx 0;
   position: relative;
 }
 
@@ -55,6 +55,7 @@ page {
   width: 280rpx;
   height: 200rpx;
   margin-right: 30rpx;
+  border-radius: 10rpx;
 }
 
 .newitem .meta {
@@ -68,7 +69,7 @@ page {
 .newitem .meta .title{
   margin-top: 10rpx;
   font-size: 38rpx;
-  letter-spacing: 2rpx;
+  letter-spacing: 1.6rpx;
   line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -144,7 +145,7 @@ page {
 /* =============================================================================== */
 
 .picture {
-  padding: 10rpx;
+  padding: 10rpx 0;
   border-bottom: 4rpx solid #f4f4f4;
 }
 .picture .imgtitle {

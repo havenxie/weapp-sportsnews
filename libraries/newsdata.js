@@ -12,6 +12,7 @@ function fetchApi (type, params, flag) {
       success: resolve,
       fail: reject
     })
+ 
   })
 }
 
