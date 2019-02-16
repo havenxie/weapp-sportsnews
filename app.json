@@ -13,10 +13,9 @@
     "navigationBarBackgroundColor": "#de0000",
     "navigationBarTitleText": "Sports News",
     "navigationStyle": "default",
-    "navigationBarTextStyle":"#000",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#fff",
-    "backgroundTextStyle": "durk",
+    "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true
-    
   }
 }

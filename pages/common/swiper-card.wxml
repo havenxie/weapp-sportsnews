@@ -2,7 +2,7 @@
 
 <template name="swiper-item">
   <swiper-item wx:if="{{!(item.type ? item.type == 'web' : item.links[0].type == 'web')}}"><!--不渲染web网页内容-->
-    <view class="slide-nav" bindtap='navToPicture' data-id="{{item.id ? item.id : item.link.url}}" >
+    <view class="slide-nav" bindtap='navToPicture' data-id="{{item.link.url}}" >
     <image src="{{item.thumbnail}}" mode="aspectFill"/>
     <text class="title">{{item.title}}</text>
     </view>

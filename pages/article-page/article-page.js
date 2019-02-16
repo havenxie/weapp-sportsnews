@@ -6,10 +6,12 @@ Page({
     	loading: true,
 		body: {},
 		disclaimer: '',
-		wxml: {}
+		wxml: {},
+        option: ''
 	},
 
 	onLoad(option) {
+        console.log(option)
 		let params = option;
         let urlType = params.urlType;
         delete params.urlType; //返回的是一个bool值
@@ -19,6 +21,7 @@ Page({
 				this.setData({wxml: wxml});
 
 				this.setData({
+                    option: option,
 					loading: false,
 					body: res.body,
 					disclaimer: res.disclaimer
@@ -45,4 +48,33 @@ Page({
     onPullDownRefresh() {
         wx.stopPullDownRefresh();
     },
+    // //右上角分享功能
+    // onShareAppMessage: function (res) {
+    //     var that = this;
+    //     return {
+    //         title: 'Sports News',
+    //         //右上角分享功能
+    //         onShareAppMessage: function (res) {
+    //             var that = this;
+    //             return {
+    //                 title: 'Sports News',
+    //                 path: '/pages/article-page/article-page?id=' + that.data.option,
+    //                 success: function (res) {
+    //                     // 转发成功
+    //                     wx.showToast({
+    //                         title: '转发成功！',
+    //                     })
+    //                     that.shareClick();
+    //                 },
+    //                 fail: function (res) {
+    //                     // 转发失败
+    //                     wx.showToast({
+    //                         icon: 'none',
+    //                         title: '转发失败',
+    //                     })
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 })

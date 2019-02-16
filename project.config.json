@@ -5,10 +5,12 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.2",
+	"libVersion": "2.6.0",
 	"appid": "wxe40cefa733a8fc4d",
 	"projectname": "SportsNews",
 	"condition": {
