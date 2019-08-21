@@ -40,7 +40,7 @@ Page({
                 page: 1
             })
             .then(d => {
-              //console.log(d)
+              console.log(d)
                 d.forEach((obj, index) => {
                     let validData = obj.item;
                     if (!validData)
@@ -109,6 +109,7 @@ Page({
            
     },
     navToSpecial(event) {
+      console.log(event)
         let str = dealUrl.getUrlTypeId(event);
         wx.navigateTo({
             url: '../special-page/special-page' + str ,

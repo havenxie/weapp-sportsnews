@@ -10,9 +10,11 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.0",
+	"libVersion": "2.8.0",
 	"appid": "wxe40cefa733a8fc4d",
 	"projectname": "SportsNews",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

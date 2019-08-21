@@ -36,8 +36,9 @@ Page({
             subtitle: '加载中...',
             loading: true
         })
-        newsdata.find(urlType, params)
+        newsdata.find(urlType, params, null)
         .then(d => {
+          console.log(d)
             let tempTitle = [];
             d.body.subjects.forEach((item, index) => {
                 if(item.title) {
@@ -130,6 +131,7 @@ Page({
         //         });
         //     }
         // });
+        console.log(params)
         this.setData({//存储数据留着给刷新用
             localParams: params,
         });

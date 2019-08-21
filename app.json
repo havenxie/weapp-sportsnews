@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/main-page/main-page",
     "pages/special-page/special-page",
     "pages/article-page/article-page",
@@ -9,7 +9,7 @@
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
+  "window": {
     "navigationBarBackgroundColor": "#de0000",
     "navigationBarTitleText": "Sports News",
     "navigationStyle": "default",
@@ -17,5 +17,6 @@
     "backgroundColor": "#fff",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
