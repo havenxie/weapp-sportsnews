@@ -11,21 +11,20 @@ Page({
 	},
 
 	onLoad(option) {
-        console.log(option)
-		let params = option;
-        let urlType = params.urlType;
-        delete params.urlType; //返回的是一个bool值
-		newsdata.find(urlType, params)
-			.then((res) => {
-				let wxml = htmlToWxml.html2json(res.body.text);
-				this.setData({wxml: wxml});
+    console.log(option)
+    let params = option
+    newsdata.find('ng.com/ipadtestdoc', params)
+    .then((res) => {
+      console.log(res)
+      let wxml = htmlToWxml.html2json(res.body.text);
+      this.setData({wxml: wxml});
 
-				this.setData({
-                    option: option,
-					loading: false,
-					body: res.body,
-					disclaimer: res.disclaimer
-				});
+      this.setData({
+        option: option,
+        loading: false,
+        body: res.body,
+        disclaimer: res.disclaimer
+      });
 
 			})
 			.catch(err => {

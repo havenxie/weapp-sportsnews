@@ -1,4 +1,5 @@
 const API_URL = 'https://api.iclient.ifeng.com';
+// const API_URL = 'HTTPS://i.sports.ifeng.com';
 const API_URL2 = 'https://nine.ifeng.com';
 const API_LIVE = 'https://sports.live.ifeng.com/API';
 const Promise = require('./bluebird')
